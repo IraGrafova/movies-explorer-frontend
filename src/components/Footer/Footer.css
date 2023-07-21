@@ -1,3 +1,36 @@
-.Footer {
+.footer {
  background-color: #202020;   
+ 
+
+}
+
+.footer__about-project {
+    color: #8B8B8B;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.footer__caption {
+
+}
+
+.footer__date {
+    color: #8B8B8B;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.footer__service {
+    color: #FFF;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

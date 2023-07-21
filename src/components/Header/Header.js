@@ -7,15 +7,15 @@ function Header() {
     let location = useLocation();
     
     return (
-        <header className="Header">
-            <img src={logo} className="Header-logo" alt="Логотип" />
+        <header className="header">
+            <img src={logo} className="header-logo" alt="Логотип" />
 
             {location.pathname === "/signup" && (
-                <p className="Header__title">Добро пожаловать!</p>
+                <p className="header__title">Добро пожаловать!</p>
             )}
 
             {location.pathname === "/signin" && (
-                <p className="Header__title">Рады видеть!</p>
+                <p className="header__title">Рады видеть!</p>
             )}
 
             {location.pathname === "/" && (

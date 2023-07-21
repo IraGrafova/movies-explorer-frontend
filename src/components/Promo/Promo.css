@@ -1,4 +1,4 @@
-.Promo {
+.promo {
     background-color: #073042;
     min-height: 570px;
     background-image: url('../../images/landing-logo.svg');
@@ -7,10 +7,10 @@
 
 }
 
-.Promo__title {
+.promo__title {
     color: white;
     text-align: center;
-    font-family: Inter;
+    font-family: "Inter", "Arial", sans-serif;
     font-size: 31px;
     font-style: normal;
     font-weight: 400;

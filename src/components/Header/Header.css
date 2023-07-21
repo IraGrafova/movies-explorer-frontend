@@ -1,7 +1,8 @@
-.Header {
+.header {
     display: flex;
+    font-family: "Inter", "Arial", sans-serif;
 }
 
-.Header-logo{
+.header-logo{
     size: 38px;
 }

@@ -1,16 +1,18 @@
 .footer {
- background-color: #202020;   
- 
-
+ background-color: #202020;
+ margin-top: 79px;
+ padding: 0 10px;
 }
 
-.footer__about-project {
+.footer__heading {
     color: #8B8B8B;
     font-family: "Inter", "Arial", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    border-bottom: 1px #424242 solid;
+    min-height: 36px;
 }
 
 .footer__caption {
@@ -33,4 +35,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 30px;
+}
+
+.footer__service:last-child {
+  margin-top: 12px;
 }

@@ -1,0 +1,41 @@
+.portfolio {
+  background: #202020;
+  padding: 70px 18px;
+  text-align: left;
+}
+
+.portfolio__heading {
+  color: #a0a0a0;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  margin-bottom: 20px;
+}
+
+.portfolio__links {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.portfolio__github {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: -0.72px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 47px;
+  border-bottom: 1px #dadada solid;
+  text-decoration: none;
+}
+
+.portfolio__github-pointer {
+}

@@ -3,6 +3,7 @@ import React from "react";
 import './AboutMe.css';
 
 import myPhoto from '../../images/photo_me.jpg';
+import { Link } from "react-router-dom";
 
 function AboutMe() {
   return (
@@ -19,6 +20,7 @@ function AboutMe() {
         веб-разработке, хочу сменить свою постоянную работу и иметь возможность
         работать удаленно.
       </p>
+      <a href="https://github.com/IraGrafova" class="about-me__github" target="_blank" rel="noopener noreferrer">Github</a>
     </section>
   );
 }

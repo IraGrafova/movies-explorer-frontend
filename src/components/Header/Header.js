@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
+import './Header';
+
 import logo from '../../images/logo.png'
 
 function Header() {
     let location = useLocation();
-    
+
     return (
         <header className="header">
             <img src={logo} className="header-logo" alt="Логотип" />
@@ -20,7 +22,7 @@ function Header() {
 
             {location.pathname === "/" && (
                 <div className="header__links">
-                 
+
                 </div>
             )}
         </header>

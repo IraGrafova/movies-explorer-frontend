@@ -1,8 +1,44 @@
 .header {
-    display: flex;
-    font-family: "Inter", "Arial", sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
 }
 
-.header-logo{
-    size: 38px;
+.header__logo {
+  size: 38px;
+}
+
+.header__title {
+}
+
+.header__about-project {
+  background: #073042;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.header__link {
+  color: #fff;
+  text-align: right;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+.header__link:last-child {
+  border-radius: 3px;
+  background: #3ddc84;
+  width: 54px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

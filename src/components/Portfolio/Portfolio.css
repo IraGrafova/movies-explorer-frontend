@@ -1,6 +1,6 @@
 .portfolio {
   background: #202020;
-  padding: 70px 18px;
+  padding: 57px 15px 0;
   text-align: left;
 }
 
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 142.857% */
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .portfolio__links {

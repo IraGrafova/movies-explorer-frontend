@@ -1,6 +1,6 @@
 .about-me {
   background: #202020;
-  padding: 70px 18px 0;
+  padding: 70px 13px 0;
   text-align: left;
 }
 
@@ -33,6 +33,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px; /* 145.455% */
+  margin-top: 20px;
 }
 
 .about-me__title {
@@ -43,6 +44,8 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -1.2px;
+  margin: 0;
+  margin-top: 38px;
 }
 
 .about-me__description {
@@ -53,7 +56,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 145.455% */
-  margin-top: 20px;
+  margin: 20px 0 37px;
+  
 }
 
 .about-me__github {
@@ -63,6 +67,5 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-top: 40px;
   text-decoration: none;
 }

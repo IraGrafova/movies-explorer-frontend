@@ -1,83 +1,131 @@
 .about-project {
-    background: #202020;
-    padding: 72px 18px 36px;
-    text-align: left;
+  background: #202020;
+  padding: 72px 18px 36px;
+  text-align: left;
 }
 
 .about-project__block {
-    margin: 59px 0;
-
+  margin: 59px 0;
 }
 
 .about-project__heading {
-    color: #fff;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.72px;
-    margin: 0;
-    border-bottom: 1px #dadada solid;
-    height: 48px;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  margin: 0;
+  border-bottom: 1px #dadada solid;
+  height: 48px;
 }
 
 .about-project__title {
-    color: #fff;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.72px;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
 }
 
 .about-project__description {
-    color: #fff;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 .about-project__grid {
-    display: grid;
-    row-gap: 10px;
-    padding: 0;
-    margin: 0;
-    grid-template-columns: 100px 184px;
-    grid-template-rows: repeat(2, 1fr);
+  display: grid;
+  row-gap: 10px;
+  padding: 0;
+  margin: 0;
+  grid-template-columns: 100px 184px;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .about-project__grid-title {
-    color: #000;
-    text-align: center;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background-color: #3ddc84;
-    padding: 11px;
-    margin: 0;
+  color: #000;
+  text-align: center;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #3ddc84;
+  padding: 11px;
+  margin: 0;
 }
 
 .about-project__grid-title_long {
-    color: #fff;
-    background: #303030;
+  color: #fff;
+  background: #303030;
 }
 
 .about-project__grid-description {
-    color: #a0a0a0;
-    text-align: center;
-    font-family: "Suisse Intl";
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #a0a0a0;
+  text-align: center;
+  font-family: "Suisse Intl";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  height: min-content;
+  letter-spacing: 0.7px;
+}
+
+@media (min-width: 768px) {
+  .about-project {
+    padding: 91px 50px 0;
+  }
+
+  .about-project__heading {
+    font-size: 22px;
+    letter-spacing: -0.88px;
+  }
+
+  .about-project__blocks{
+    display: flex;
+    gap: 40px;
+  }
+
+  .about-project__block {
+    margin-top: 51px;
+  }
+
+  .about-project__title {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+
+  .about-project__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__grid {
+    display: grid;
+    row-gap: 17px;
     padding: 0;
-    margin: 0;
-    height: min-content;
-    letter-spacing: 0.7px;
+ margin-top: 23px;
+    grid-template-columns: 140px 528px;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .about-project__grid-title {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  .about-project__grid-description {
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
 }

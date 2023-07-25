@@ -10,7 +10,7 @@
 
 .header__about-project {
   background: #073042;
-  padding: 8px 14px;
+  padding: 18px 14px;
   display: flex;
   justify-content: space-between;
 }
@@ -53,6 +53,10 @@
 
  .header__links {
   gap: 30px;
+}
+
+.header__link {
+  letter-spacing: 1px;
 }
 
  .header__link:last-child {

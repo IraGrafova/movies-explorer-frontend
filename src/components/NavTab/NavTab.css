@@ -3,7 +3,7 @@
   justify-content: space-between;
   padding: 25px 53px;
   background: #272727;
-  margin-top: 31px;
+  margin-top: 39px;
 }
 
 .navigation__link {
@@ -24,5 +24,9 @@
     border-top: black 1px solid;
     gap: 55px;
     justify-content: center;
+  }
+
+  .navigation__link {
+    letter-spacing: 1px;
   }
 }

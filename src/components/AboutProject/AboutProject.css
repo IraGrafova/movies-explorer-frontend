@@ -71,7 +71,7 @@
 .about-project__grid-description {
     color: #a0a0a0;
     text-align: center;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl";
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
@@ -79,4 +79,5 @@
     padding: 0;
     margin: 0;
     height: min-content;
+    letter-spacing: 0.7px;
 }

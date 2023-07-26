@@ -30,3 +30,9 @@
     letter-spacing: 1px;
   }
 }
+
+@media (min-width: 1280px) {
+  .navigation {
+    margin-top: 40px;
+  }
+}

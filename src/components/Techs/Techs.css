@@ -58,7 +58,7 @@
   line-height: normal;
   letter-spacing: -0.48px;
   width: 84px;
-  height: 57px;
+  min-height: 57px;
   border-radius: 10px;
   background: #303030;
   display: flex;
@@ -94,5 +94,33 @@
 
   .techs__technologies {
     margin: 85px 9px 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .techs {
+    padding: 173px 70px;
+  }
+
+  .techs__title {
+    margin-top: 89px;
+    margin-bottom: 27px;
+  }
+
+  .techs__description {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.56px;
+  }
+
+  .techs__technologies {
+    margin: 99px 225px 0;
+  }
+
+  .techs__technology {
+    font-size: 14px;
+    letter-spacing: -0.56px;
+    width: 90px;
+    min-height: 60px;
   }
 }

@@ -35,3 +35,15 @@
     letter-spacing: -2px;
   }
 }
+
+@media (min-width: 1280px) {
+.promo {
+    min-height: 484px;
+    margin: 0px;
+    background-size: 25%;
+}
+
+.promo__title {
+  max-width: 650px;
+}
+}

@@ -57,3 +57,14 @@
     min-height: 69px;
   }
 }
+
+@media (min-width: 1280px) {
+  .portfolio {
+    padding: 83px 70px 0;
+  }
+
+  .portfolio__github {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+}

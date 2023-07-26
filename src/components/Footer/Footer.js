@@ -9,8 +9,10 @@ function Footer() {
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
       <div className="footer__caption">
+        <div className="footer__services">
         <p className="footer__service">Яндекс.Практикум</p>
         <p className="footer__service">Github</p>
+        </div>
         <p className="footer__date">© 2023</p>
       </div>
     </footer>

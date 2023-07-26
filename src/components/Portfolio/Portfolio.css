@@ -39,3 +39,21 @@
 
 .portfolio__github-pointer {
 }
+
+@media (min-width: 768px) {
+  .portfolio {
+    padding: 75px 50px 0;
+  }
+  .portfolio__heading {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 52px;
+  }
+  .portfolio__github {
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 50px;
+    letter-spacing: -1.12px;
+    min-height: 69px;
+  }
+}

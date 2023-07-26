@@ -1,41 +1,74 @@
 .footer {
- background-color: #202020;
- margin-top: 130px;
- padding: 0 10px;
+  background-color: #202020;
+  margin-top: 130px;
+  padding: 0 10px;
 }
 
 .footer__heading {
-    color: #8B8B8B;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border-bottom: 1px #424242 solid;
-    min-height: 36px;
-    margin-bottom: 30px;
+  color: #8b8b8b;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-bottom: 1px #424242 solid;
+  min-height: 36px;
+  margin-bottom: 30px;
 }
 
 .footer__caption {
-
 }
 
 .footer__date {
-    color: #8B8B8B;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 30px;
+  color: #8b8b8b;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 30px;
 }
 
 .footer__service {
-    color: #FFF;
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 14px;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 14px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    margin-top: 147px;
+    padding: 0 30px;
+  }
+
+  .footer__heading {
+    font-size: 13px;
+    font-feature-settings: "clig" off, "liga" off;
+    margin-bottom: 0;
+  }
+
+  .footer__caption {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__services {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer__service {
+    margin-top: 20px;
+    letter-spacing: 0.6px;
+  }
+
+  .footer__date {
+    margin-top: 20px;
+  }
 }

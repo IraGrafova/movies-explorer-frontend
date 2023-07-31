@@ -37,6 +37,13 @@ function Header() {
           </div>
         </div>
       )}
+
+      {location.pathname === "/movies" && (
+        <div className="header__movie">
+          <img src={logo} className="header__logo" alt="Логотип" />
+          <button className="header__menu"></button>
+        </div>
+      )}
     </header>
   );
 

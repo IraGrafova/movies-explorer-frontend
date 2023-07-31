@@ -4,17 +4,20 @@ import "./FilterCheckbox.css";
 
 function FilterCheckbox() {
   return (
-    <section className="filter-checkbox">
-      <form>
+    <section className="filter">
+      <label className="filter-checkbox">
         <input
-          className="filter-checkbox-checkbox"
+          className="filter-checkbox__checkbox"
           type="checkbox"
           name="checkbox"
           id="checkbox"
-
+          checked
         />
-        <button className="search-form__submit" type="submit"></button>
-      </form>
+        <span className='filter-checkbox__toggle filter-checkbox__toggle-shutdown '>
+          <span className='filter-checkbox__toggle-button filter-checkbox__toggle-button-shutdown '></span>
+          </span>
+        <span class="filter-checkbox__text">Короткометражки</span>
+      </label>
     </section>
   );
 }

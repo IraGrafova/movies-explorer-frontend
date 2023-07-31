@@ -1,16 +1,14 @@
 .movies-card {
   background-color: #2f2f2f;
-  border: green solid 1px;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .movies-card__picture {
   object-fit: cover;
   width: 100%;
   background-color: #202020;
-  height: 57%;
-  border: red solid 1px;
+  height: 168px;
+/* height: auto; */
+  /* height: 57%; */
 
 }
 
@@ -50,7 +48,7 @@
   justify-content: space-between;
   padding-left: 12px;
   padding-right: 26px;
-  padding-top: 14px;
+  padding-top: 8px;
   margin: 0;
 }
 
@@ -66,4 +64,10 @@
   margin: 0;
   padding-top: 9px;
   padding-bottom: 14px;
+}
+
+@media (min-width: 340px) {
+  .movies-card__picture {
+   height: auto;
+  }
 }

@@ -29,6 +29,18 @@ const movies = [
   url: "https://child-class.ru/sites/default/files/pnone-wallpaper-peppa-pig_54.jpg",
   duration:'20m'
 },
+{
+  id: '6',
+  nameRU: 'Три кота',
+  url: "https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/1654514/psCSucjraFEccNYA69GRQ.jpg",
+  duration:'15m'
+},
+{
+  id: '7',
+  nameRU: 'Peppa pig',
+  url: "https://child-class.ru/sites/default/files/pnone-wallpaper-peppa-pig_54.jpg",
+  duration:'20m'
+},
 ]
 
 export default movies;

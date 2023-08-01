@@ -71,3 +71,9 @@
    height: auto;
   }
 }
+
+@media (min-width: 637px) {
+  .movies-card__picture {
+   height: 78%;
+  }
+}

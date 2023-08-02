@@ -41,3 +41,14 @@
   }
 
 }
+
+@media (min-width: 768px) {
+  .movies-list {
+    margin-top: 80px;
+    margin-bottom: 49px;
+  }
+  .movies-button {
+    width: 89%;
+    margin-bottom: 3px;
+  }
+}

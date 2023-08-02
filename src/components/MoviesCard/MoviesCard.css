@@ -115,3 +115,10 @@
     font-size: 18px;
   }
 }
+
+
+@media (min-width: 1280px) {
+  .movies-card {
+    margin: 0 60px;
+  }
+}

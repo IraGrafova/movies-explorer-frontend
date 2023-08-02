@@ -42,6 +42,17 @@ function Header() {
         <div className="header__movie">
           <img src={logo} className="header__logo" alt="Логотип" />
           <button className="header__menu"></button>
+          <div className="header__navigation">
+          <NavLink to="/movies" className="header__navigation-link">
+              Фильмы
+            </NavLink>
+            <NavLink to="/saved-movies" className="header__navigation-link">
+              Сохраненные фильмы
+            </NavLink>
+            <NavLink to="/profile" className="header__navigation-link">
+              Аккаунт<span className="header__navigation-link-icon"></span>
+            </NavLink>
+          </div>
         </div>
       )}
     </header>

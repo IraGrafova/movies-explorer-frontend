@@ -97,7 +97,41 @@
     padding: 17px 71px;
   }
   .header__movie {
-    padding: 15px 69px;
+    padding: 18px 69px;
+  }
+  .header__menu {
+    display: none;
+  }
+  .header__navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .header__navigation-link {
+    color: #fff;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-decoration: none;
+    list-style: none;
   }
 
+  .header__navigation-link:last-child {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .header__navigation-link-icon {
+    background-image: url("../../images/icon__profile.svg");
+    width: 30px;
+    height: 30px;
+    background-color: #313131;
+    border-radius: 6px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 13px;
+  }
 }

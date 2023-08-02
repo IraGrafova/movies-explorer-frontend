@@ -87,6 +87,10 @@
 
 @media (min-width: 1280px) {
   .filter {
-    margin-bottom: 38px;
+    margin-bottom: 0;
+  }
+  .filter-checkbox {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }

@@ -72,3 +72,9 @@
     margin-top: 20px;
   }
 }
+
+@media (min-width: 1280px) {
+  .footer {
+    padding: 0 70px;
+  }
+}

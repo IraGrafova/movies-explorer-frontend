@@ -96,4 +96,8 @@
   .header__about-project {
     padding: 17px 71px;
   }
+  .header__movie {
+    padding: 15px 69px;
+  }
+
 }

@@ -62,3 +62,25 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .search {
+
+    margin: 0;
+  }
+  .search-form {
+    margin-top: 69px;
+
+    width: 900px;
+    
+    margin-bottom: 108px;
+  }
+  .search-form__input {
+    font-size: 18px;
+    line-height: 20px; /* 111.111% */
+    background-image: url('../../images/search-icon.svg');
+    background-repeat: no-repeat;
+    padding-left: 44px;
+    background-position: left;
+  }
+}
+

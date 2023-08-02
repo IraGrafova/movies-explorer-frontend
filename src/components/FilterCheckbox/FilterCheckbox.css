@@ -84,3 +84,9 @@
     font-size: 13px;
   }
 }
+
+@media (min-width: 1280px) {
+  .filter {
+    margin-bottom: 38px;
+  }
+}

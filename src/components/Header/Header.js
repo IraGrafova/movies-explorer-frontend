@@ -38,7 +38,7 @@ function Header() {
         </div>
       )}
 
-      {location.pathname === "/movies" && (
+      {((location.pathname === "/movies")||(location.pathname === "/saved-movies")) && (
         <div className="header__movie">
           <img src={logo} className="header__logo" alt="Логотип" />
           <button className="header__menu"></button>

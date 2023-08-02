@@ -41,7 +41,7 @@
 
 @media (min-width: 768px) {
   .footer {
-    margin-top: 147px;
+    margin-top: 0;
     padding: 0 30px;
   }
 
@@ -70,12 +70,5 @@
 
   .footer__date {
     margin-top: 20px;
-  }
-}
-
-@media (min-width: 768px) {
-  .footer {
-    margin-top: 184px;
-    padding: 0 70px;
   }
 }

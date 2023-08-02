@@ -43,12 +43,10 @@
 
 .movies-card__about {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
-  padding-left: 12px;
-  padding-right: 26px;
-  padding-top: 8px;
-  margin: 0;
+  gap: 8px;
 }
 
 .movies-card__duration {
@@ -59,10 +57,16 @@
   font-weight: 400;
   line-height: normal;
   text-align: left;
-  padding-left: 12px;
   margin: 0;
-  padding-top: 9px;
-  padding-bottom: 14px;
+}
+
+.movies-card__label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  margin-left: 12px;
+  margin-right: 16px;
 }
 
 @media (min-width: 340px) {
@@ -90,10 +94,7 @@
     margin: 6px 6px 6px 0px;
   }
   .movies-card__about {
-    flex-direction: column;
-    align-items: flex-start;
     text-align: left;
-    padding: 0;
     gap: 13px;
   }
 

@@ -133,6 +133,15 @@
 
 @media (min-width: 1280px) {
   .profile-form {
-    padding: 0 442px;
+    padding: 0 435px;
+    margin-top: 73px;
+  }
+
+  .profile-form__area_name {
+    margin-top: 84px;
+  }
+
+  .profile-form__submit {
+    margin-top: 189px;
   }
 }

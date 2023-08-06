@@ -12,15 +12,13 @@ function Header() {
     <header className="header">
       {location.pathname === "/signup" && (
         <div>
-          <img src={logo} className="header__logo" alt="Логотип" />
-          <p className="header__title">Добро пожаловать!</p>
+          <img src={logo} className="header__logo-authorization" alt="Логотип" />
         </div>
       )}
 
       {location.pathname === "/signin" && (
         <div>
           <img src={logo} className="header__logo" alt="Логотип" />
-          <p className="header__title">Рады видеть!</p>
         </div>
       )}
 

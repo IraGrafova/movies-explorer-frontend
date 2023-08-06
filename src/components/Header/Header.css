@@ -115,6 +115,8 @@
 }
 
 @media (min-width: 1280px) {
+
+
   .header__about-project {
     padding: 17px 71px;
   }
@@ -155,5 +157,10 @@
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 13px;
+  }
+
+  .header__logo-authorization {
+    padding-top: 70px;
+    margin-left: 442px;
   }
 }

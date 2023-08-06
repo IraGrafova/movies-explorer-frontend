@@ -111,3 +111,9 @@
     font-weight: 400;
   }
 }
+
+@media (min-width: 1280px) {
+  .authorization-form {
+    padding: 0 442px;
+  }
+}

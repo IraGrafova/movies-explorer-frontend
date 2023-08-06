@@ -6,9 +6,9 @@
 }
 
 .profile-form__area {
- display: flex;
- justify-content: space-between;
- width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .profile-form__area_name {
@@ -85,7 +85,7 @@
 }
 
 .profile-form__signout {
-  color: #EE3465;
+  color: #ee3465;
   text-align: center;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 12px;
@@ -106,25 +106,28 @@
 
 @media (min-width: 768px) {
   .profile-form {
-    padding: 0 186px;
+    padding: 0 179px;
+    margin-top: 236px;
   }
 
   .profile-form__title {
-    margin: 0;
+    margin-top: 0;
     margin-bottom: 40px;
   }
 
-
-
   .profile-form__submit {
-    margin-top: 71px;
-    font-size: 14px;
-    font-weight: 500;
+    margin-top: 179px;
+    color: #fff;
+    font-size: 13px;
   }
 
-  .profile-form__signin {
-    font-size: 14px;
-    font-weight: 400;
+  .profile-form__area_name {
+    margin-top: 55px;
+  }
+
+  .profile-form__signout {
+    font-size: 13px;
+    font-weight: 500;
   }
 }
 

@@ -85,3 +85,29 @@
 .authorization-form__signin-span {
   color: #4285f4;
 }
+
+@media (min-width: 768px) {
+  .authorization-form {
+    padding: 0 186px;
+  }
+
+  .authorization-form__title {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  .authorization-form__input {
+    width: 92%;
+  }
+
+  .authorization-form__submit {
+    margin-top: 71px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .authorization-form__signin {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

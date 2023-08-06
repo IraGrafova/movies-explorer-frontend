@@ -9,7 +9,7 @@ function Header() {
   let location = useLocation();
 
   return (
-    <header className="header">
+    <header className="header header_authorization">
       {location.pathname === "/signup" && (
         <div>
           <img src={logo} className="header__logo-authorization" alt="Логотип" />

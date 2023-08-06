@@ -70,6 +70,10 @@
     border-bottom: 1px solid #000;
   }
 
+  .header_authorization {
+    border-bottom: none;
+  }
+
   .header__about-project {
     padding: 18px 30px;
   }
@@ -98,6 +102,15 @@
   }
   .header__navigation {
     display: none;
+  }
+
+  .header__logo-authorization {
+    margin-top: 0;
+    display: flex;
+    justify-content: left;
+    padding-top: 232px;
+    margin-bottom: 40px;
+    margin-left: 186px;
   }
 }
 

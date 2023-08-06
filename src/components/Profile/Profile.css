@@ -1,0 +1,135 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  align-items: flex-start;
+}
+
+.profile-form__area {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+}
+
+.profile-form__area_name {
+  border-bottom: 1px solid #424242;
+}
+
+.profile-form__area_email {
+  margin-top: 16px;
+}
+
+.profile-form__title {
+  margin: 0 auto;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 80px;
+  margin-top: 70px;
+}
+
+.profile-form__label {
+  margin: 0;
+  padding: 0;
+  color: #8b8b8b;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.profile-form__input {
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  border: none;
+  font-family: "Inter", "Arial", sans-serif;
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+  background: none;
+  text-align: right;
+}
+
+.profile-form__input:focus {
+  outline: none;
+}
+
+.profile-form__submit {
+  background: none;
+  color: #fff;
+  text-align: center;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 3px;
+  text-align: center;
+  border: none;
+  width: 100%;
+  min-height: 45px;
+  margin-top: 348px;
+}
+
+.profile-form__submit:hover {
+  opacity: 0.6;
+}
+
+.profile-form__signout {
+  color: #EE3465;
+  text-align: center;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  margin: 0 auto 30px;
+}
+
+.profile-form__signin:hover {
+  opacity: 0.6;
+}
+
+.profile-form__signin-span {
+  color: #4285f4;
+}
+
+@media (min-width: 768px) {
+  .profile-form {
+    padding: 0 186px;
+  }
+
+  .profile-form__title {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+
+
+  .profile-form__submit {
+    margin-top: 71px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .profile-form__signin {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile-form {
+    padding: 0 442px;
+  }
+}

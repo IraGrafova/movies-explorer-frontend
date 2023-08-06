@@ -10,17 +10,17 @@ function Header() {
 
   return (
     <header className="header header_authorization">
-      {location.pathname === "/signup" && (
+      {((location.pathname === "/signup") || (location.pathname === "/signin")) && (
         <div>
           <img src={logo} className="header__logo-authorization" alt="Логотип" />
         </div>
       )}
 
-      {location.pathname === "/signin" && (
+      {/* {location.pathname === "/signin" && (
         <div>
           <img src={logo} className="header__logo" alt="Логотип" />
         </div>
-      )}
+      )} */}
 
       {location.pathname === "/" && (
         <div className="header__about-project">

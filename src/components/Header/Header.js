@@ -16,12 +16,6 @@ function Header() {
         </div>
       )}
 
-      {/* {location.pathname === "/signin" && (
-        <div>
-          <img src={logo} className="header__logo" alt="Логотип" />
-        </div>
-      )} */}
-
       {location.pathname === "/" && (
         <div className="header__about-project">
           <img src={logo} className="header__logo" alt="Логотип" />
@@ -56,12 +50,6 @@ function Header() {
     </header>
   );
 
-  //     <NavLink to="/signin" className="header__link" onClick={signOut}>
-  //     Регистрация
-  // </NavLink>
-  // <NavLink to="/signin" className="header__link" onClick={signOut}>
-  //     Войти
-  // </NavLink>
 }
 
 export default Header;

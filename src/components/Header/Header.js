@@ -4,15 +4,20 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../../images/logo.png";
+import Navigation from "../Navigation/Navigation";
 
 function Header() {
   let location = useLocation();
 
   return (
     <header className="header header_authorization">
-      {((location.pathname === "/signup") || (location.pathname === "/signin")) && (
+      {(location.pathname === "/signup" || location.pathname === "/signin") && (
         <div>
-          <img src={logo} className="header__logo-authorization" alt="Логотип" />
+          <img
+            src={logo}
+            className="header__logo-authorization"
+            alt="Логотип"
+          />
         </div>
       )}
 
@@ -30,26 +35,17 @@ function Header() {
         </div>
       )}
 
-      {((location.pathname === "/movies")||(location.pathname === "/saved-movies")||(location.pathname === "/profile")) && (
+      {(location.pathname === "/movies" ||
+        location.pathname === "/saved-movies" ||
+        location.pathname === "/profile") && (
         <div className="header__movie">
           <img src={logo} className="header__logo" alt="Логотип" />
           <button className="header__menu"></button>
-          <div className="header__navigation">
-          <NavLink to="/movies" className="header__navigation-link">
-              Фильмы
-            </NavLink>
-            <NavLink to="/saved-movies" className="header__navigation-link">
-              Сохраненные фильмы
-            </NavLink>
-            <NavLink to="/profile" className="header__navigation-link">
-              Аккаунт<span className="header__navigation-link-icon"></span>
-            </NavLink>
-          </div>
+          <Navigation />
         </div>
       )}
     </header>
   );
-
 }
 
 export default Header;

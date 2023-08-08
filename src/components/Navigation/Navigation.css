@@ -1,17 +1,6 @@
-.navigation {
-  position: fixed;
+.nav-background {
   height: 100vh;
-  right: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation-background {
-  height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.3);
   /* background: #000;
   opacity: 0.3; */
@@ -20,34 +9,107 @@
   padding: 0;
 }
 
-.navigation__close {
+.nav {
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  background-color: #202020;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.nav__window {
+width: 100%;
+}
+
+.nav__close {
   background: none;
   background-image: url(../../images/close-menu.svg);
   background-repeat: no-repeat;
-  width: 22px;
+  width: 95%;
   height: 22px;
   border: none;
-  background-size: 22px;
+  background-size: 28px;
   cursor: pointer;
+  margin-top: 20px;
+  background-position: right;
+  margin-right: 20px;
+  margin-bottom: 104px;
 }
 
-.navigation__link {
+.nav__close:hover {
+  opacity: 50%;
+}
+
+.nav__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav__link {
   color: #fff;
-  text-align: right;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
   font-family: "Inter", "Arial", sans-serif;
-  font-size: 10px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px;
+  line-height: normal;
   text-decoration: none;
+  min-height: 29px;
+}
+
+.nav__link-profile {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 48px;
+}
+
+.nav__link_active {
+  border-bottom: #fff 2px solid;
+}
+
+.nav__link:hover {
+  opacity: 50%;
+}
+.nav__link-profile:hover {
+  opacity: 50%;
+}
+
+.nav__link-icon {
+  background: #313131;
+  background-image: url(../../images/icon__profile.svg);
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  display: block;
+  margin-left: 13px;
+
 }
 
 @media (min-width: 768px) {
-    .navigation__link { 
-        text-decoration: none;
-    }
+  .nav__link {
+    text-decoration: none;
+  }
 }
 
 @media (min-width: 1280px) {
-
 }

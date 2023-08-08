@@ -9,17 +9,24 @@ function Navigation() {
   let location = useLocation();
 
   return (
-    <div className="navigation-background">
-      <nav className="navigation">
-        <button className="navigation__close"></button>
-        <NavLink to="/movies" className="navigation__link">
-          Фильмы
-        </NavLink>
-        <NavLink to="/saved-movies" className="navigation__link">
-          Сохраненные фильмы
-        </NavLink>
-        <NavLink to="/profile" className="navigation__link">
-          Аккаунт<span className="navigation__link-icon"></span>
+    <div className="nav-background">
+      <nav className="nav">
+        <div className="nav__window">
+          <button className="nav__close"></button>
+          <div className="nav__links">
+            <NavLink to="/movies" className="nav__link">
+              Главная
+            </NavLink>
+            <NavLink to="/movies" className="nav__link nav__link_active">
+              Фильмы
+            </NavLink>
+            <NavLink to="/saved-movies" className="nav__link">
+              Сохраненные фильмы
+            </NavLink>
+          </div>
+        </div>
+        <NavLink to="/profile" className="nav__link-profile">
+          Аккаунт<span className="nav__link-icon"></span>
         </NavLink>
       </nav>
     </div>

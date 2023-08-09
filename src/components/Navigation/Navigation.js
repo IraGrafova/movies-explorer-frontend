@@ -14,7 +14,7 @@ function Navigation() {
         <div className="nav__window">
           <button className="nav__close"></button>
           <div className="nav__links">
-            <NavLink to="/movies" className="nav__link">
+            <NavLink to="/movies" className="nav__link nav__link_none">
               Главная
             </NavLink>
             <NavLink to="/movies" className="nav__link nav__link_active">

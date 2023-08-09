@@ -9,7 +9,7 @@ function Navigation() {
   let location = useLocation();
 
   return (
-    <div className="nav-background">
+    <div className="nav-background " /* nav-background_visibility*/>
       <nav className="nav">
         <div className="nav__window">
           <button className="nav__close"></button>

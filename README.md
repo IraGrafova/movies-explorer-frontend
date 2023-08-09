@@ -1,5 +1,5 @@
 nav__link_active - добавить подчеркивание элементу бургерного меню
-
+nav-background_visibility - открыть бургерное меню (стиль добавить элементу nav-background)
 
 
 # Getting Started with Create React App

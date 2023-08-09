@@ -10,6 +10,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Register from '../Register/Register';
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
+import NotFound from "../NotFound/NotFound";
 
 function App() {
 const name='Ирина';
@@ -25,6 +26,11 @@ const email='i.grafova@mail.ru';
         <Route path="/profile" element={<Profile name={name} email={email}/>} />
         <Route path="/signup" element={<Register />} />
         <Route path="/signin" element={<Login />} />
+        <Route
+              path="*"
+              element={<NotFound />
+              }
+            />
 
       </Routes>
       <Footer />

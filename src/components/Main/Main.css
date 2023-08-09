@@ -1,5 +1,11 @@
 .content {
-    min-height: 570px;
-    background-color: #073042;
+  min-height: 570px;
+  background-color: #073042;
+  margin-bottom: 130px;
+}
+
+@media (min-width: 768px) {
+  .content {
     margin-bottom: 152px;
+  }
 }

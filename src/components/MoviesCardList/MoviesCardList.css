@@ -42,7 +42,7 @@
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .movies-list {
     margin-top: 80px;
     margin-bottom: 49px;

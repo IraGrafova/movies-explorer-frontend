@@ -11,6 +11,11 @@
   right: 0;
   left: 0;
   bottom: 0;
+  visibility: hidden;
+}
+
+.nav-background_visibility {
+  visibility: visible;
 }
 
 .nav {

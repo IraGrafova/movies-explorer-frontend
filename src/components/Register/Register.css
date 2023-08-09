@@ -45,7 +45,7 @@
   outline: none;
 }
 
-.authorization-form__submit {
+.authorization-form__submit-register {
   color: #fff;
   text-align: center;
   font-family: "Inter", "Arial", sans-serif;
@@ -62,7 +62,7 @@
   margin-top: 158px;
 }
 
-.authorization-form__submit:hover {
+.authorization-form__submit-register:hover {
   opacity: 0.6;
 }
 
@@ -100,7 +100,7 @@
     width: 92%;
   }
 
-  .authorization-form__submit {
+  .authorization-form__submit-register {
     margin-top: 71px;
     font-size: 14px;
     font-weight: 500;
@@ -115,5 +115,9 @@
 @media (min-width: 1280px) {
   .authorization-form {
     padding: 0 442px;
+  }
+
+  .authorization-form__submit-register {
+    margin-top: 71px;
   }
 }

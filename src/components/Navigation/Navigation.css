@@ -2,8 +2,6 @@
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.3);
-  /* background: #000;
-  opacity: 0.3; */
   position: fixed;
   margin: 0;
   padding: 0;
@@ -50,10 +48,11 @@
   background-position: right;
   margin-right: 20px;
   margin-bottom: 104px;
+  cursor: pointer;
 }
 
 .nav__close:hover {
-  opacity: 50%;
+  opacity: 0.8;
 }
 
 .nav__links {
@@ -74,6 +73,7 @@
   line-height: normal;
   text-decoration: none;
   min-height: 29px;
+  cursor: pointer;
 }
 
 .nav__link-profile {
@@ -87,17 +87,20 @@
   align-items: center;
   text-decoration: none;
   margin-bottom: 48px;
+  cursor: pointer;
 }
+
+
 
 .nav__link_active {
   border-bottom: #fff 2px solid;
 }
 
 .nav__link:hover {
-  opacity: 50%;
+  opacity: 0.8;
 }
 .nav__link-profile:hover {
-  opacity: 50%;
+  opacity: 0.8;
 }
 
 .nav__link-icon {

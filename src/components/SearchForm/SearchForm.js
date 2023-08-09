@@ -5,7 +5,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm() {
   return (
-    <section className="search">
+    <div className="search">
       <form className="search-form">
         <input
           className="search-form__input"
@@ -17,7 +17,7 @@ function SearchForm() {
         <button className="search-form__submit" type="submit"></button>
       </form>
       <FilterCheckbox/>
-    </section>
+    </div>
   );
 }
 

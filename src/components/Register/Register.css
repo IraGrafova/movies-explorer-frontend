@@ -60,10 +60,11 @@
   width: 100%;
   min-height: 45px;
   margin-top: 158px;
+  cursor: pointer;
 }
 
 .authorization-form__submit-register:hover {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .authorization-form__signin {
@@ -76,10 +77,11 @@
   line-height: normal;
   text-decoration: none;
   margin: 14px auto 30px;
+  cursor: pointer;
 }
 
 .authorization-form__signin:hover {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .authorization-form__signin-span {

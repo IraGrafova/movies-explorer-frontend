@@ -11,12 +11,12 @@ function FilterCheckbox() {
           type="checkbox"
           name="checkbox"
           id="checkbox"
-          checked
+          // checked
         />
         <span className='filter-checkbox__toggle filter-checkbox__toggle-shutdown '>
           <span className='filter-checkbox__toggle-button filter-checkbox__toggle-button-shutdown '></span>
           </span>
-        <span class="filter-checkbox__text">Короткометражки</span>
+        <span className="filter-checkbox__text">Короткометражки</span>
       </label>
     </section>
   );

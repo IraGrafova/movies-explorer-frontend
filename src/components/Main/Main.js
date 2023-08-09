@@ -1,27 +1,25 @@
 import React from "react";
 
-import './Main.css';
+import "./Main.css";
 
 import Promo from "../Promo/Promo";
-import NavTab from '../NavTab/NavTab';
+import NavTab from "../NavTab/NavTab";
 import AboutProject from "../AboutProject/AboutProject";
-import Techs from '../Techs/Techs';
-import AboutMe from '../AboutMe/AboutMe';
+import Techs from "../Techs/Techs";
+import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
 
 function Main() {
+  return (
+    <main className="content">
+      <Promo />
+      <NavTab />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Portfolio />
+    </main>
+  );
+}
 
-    return (
-      <main className="content">
-
-       <Promo />
-       <NavTab />
-       <AboutProject />
-       <Techs />
-       <AboutMe />
-       <Portfolio />
-      </main>
-    );
-  }
-
-  export default Main;
+export default Main;

@@ -5,7 +5,7 @@ import "./MoviesCard.css";
 function MoviesCard({ card }) {
 
   let location = useLocation();
-  //console.log(card)
+
   return (
     <li className="movies-card">
       <img className="movies-card__picture" src={card.url} alt={card.nameRU} />
@@ -18,14 +18,12 @@ function MoviesCard({ card }) {
           <button
             className="movies-card__like"
             type="button"
-            // onClick={handleLikeClick}
           ></button>
         )}
         {location.pathname === "/saved-movies" && (
           <button
             className="movies-card__delete"
             type="button"
-            // onClick={handleLikeClick}
           ></button>
         )}
       </div>

@@ -4,13 +4,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 function Profile({ name, email }) {
-  console.log(name, email);
+
   return (
     <>
       <form className="profile-form">
         <h2 className="profile-form__title">Привет, {name}!</h2>
         <div className="profile-form__area profile-form__area_name">
-          <label for="name" className="profile-form__label">
+          <label htmlFor="name" className="profile-form__label">
             Имя
           </label>
           <input
@@ -24,7 +24,7 @@ function Profile({ name, email }) {
           ></input>
         </div>
         <div className="profile-form__area profile-form__area_email">
-          <label for="email" className="profile-form__label">
+          <label htmlFor="email" className="profile-form__label">
             E-mail
           </label>
           <input

@@ -7,7 +7,7 @@ function Register() {
     <>
       <form className="authorization-form">
         <h2 className="authorization-form__title">Добро пожаловать!</h2>
-        <label for="name" className="authorization-form__label">
+        <label htmlFor="name" className="authorization-form__label">
           Имя
         </label>
         <input
@@ -18,7 +18,7 @@ function Register() {
           // onChange={handleChange}
           className="authorization-form__input"
         ></input>
-        <label for="email" className="authorization-form__label">
+        <label htmlFor="email" className="authorization-form__label">
           E-mail
         </label>
         <input
@@ -29,7 +29,7 @@ function Register() {
           // onChange={handleChange}
           className="authorization-form__input"
         ></input>
-        <label for="password" className="authorization-form__label">
+        <label htmlFor="password" className="authorization-form__label">
           Пароль
         </label>
         <input

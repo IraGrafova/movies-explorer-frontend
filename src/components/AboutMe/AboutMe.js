@@ -3,14 +3,13 @@ import React from "react";
 import "./AboutMe.css";
 
 import myPhoto from "../../images/photo_me.jpg";
-import { Link } from "react-router-dom";
 
 function AboutMe() {
   return (
-    <section className="about-me">
+    <section className="about-me" id="about-me">
       <h2 className="about-me__heading">Студент</h2>
       <div className="about-me__block">
-        <img className="about-me__photo" src={myPhoto} alt="Мое фото" />
+        <img className="about-me__photo" src={myPhoto} alt="Аватар пользователя" />
         <div className="about-me__about">
           <h3 className="about-me__title">Ирина</h3>
           <h4 className="about-me__info">Фронтенд-разработчик, 27 лет</h4>
@@ -24,7 +23,7 @@ function AboutMe() {
           </p>
           <a
             href="https://github.com/IraGrafova"
-            class="about-me__github"
+            className="about-me__github"
             target="_blank"
             rel="noopener noreferrer"
           >

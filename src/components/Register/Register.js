@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Register.css";
 
 function Register() {

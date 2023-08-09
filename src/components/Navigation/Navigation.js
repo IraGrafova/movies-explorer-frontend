@@ -1,13 +1,9 @@
 import React from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./Navigation.css";
 
-import logo from "../../images/logo.png";
-
 function Navigation() {
-  let location = useLocation();
-
   return (
     <div className="nav-background " /* nav-background_visibility*/>
       <nav className="nav">

@@ -5,7 +5,7 @@ import "./Profile.css";
 
 function Profile({ name, email }) {
   return (
-    <main>
+    <main className="profile">
       <section>
         <form className="profile-form">
           <h2 className="profile-form__title">Привет, {name}!</h2>

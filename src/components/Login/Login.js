@@ -5,6 +5,7 @@ import "./Login.css";
 
 function Login() {
   return (
+    <main className="login">
     <section>
       <form className="authorization-form">
         <h1 className="authorization-form__title">Рады видеть!</h1>
@@ -15,6 +16,7 @@ function Login() {
           id="email"
           type="email"
           name="email"
+          placeholder="E-mail"
           // value={formValue.email}
           // onChange={handleChange}
           className="authorization-form__input"
@@ -26,6 +28,7 @@ function Login() {
           id="password"
           type="password"
           name="password"
+          placeholder="Пароль"
           // value={formValue.password}
           // onChange={handleChange}
           className="authorization-form__input"
@@ -39,6 +42,7 @@ function Login() {
         </NavLink>
       </form>
     </section>
+    </main>
   );
 }
 export default Login;

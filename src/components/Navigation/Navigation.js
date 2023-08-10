@@ -5,22 +5,22 @@ import "./Navigation.css";
 
 function Navigation() {
   return (
-    <div className="nav-background " /* nav-background_visibility*/>
+    <div className="nav-background nav-background_visibility" /* nav-background_visibility*/>
       <nav className="nav">
         <div className="nav__window">
           <button className="nav__close" type="button"></button>
           <ul className="nav__links">
-            <li>
+            <li className="nav__link-item">
               <NavLink to="/movies" className="nav__link nav__link_none">
                 Главная
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/movies" className="nav__link nav__link_active">
+            <li className="nav__link-item nav__link_active">
+              <NavLink to="/movies" className="nav__link ">
                 Фильмы
               </NavLink>
             </li>
-            <li>
+            <li className="nav__link-item">
               <NavLink to="/saved-movies" className="nav__link">
                 Сохраненные фильмы
               </NavLink>

@@ -82,19 +82,15 @@
 }
 
 @media (min-width: 1280px) {
-.not-found {
-  min-height: 69vh;
-}
+  .not-found {
+    min-height: 62vh;
+  }
 
-  .not-found__info{
+  .not-found__info {
     justify-content: center;
     margin-bottom: 0;
     margin-top: 92px;
   }
-
-
-
-
 
   .not-found__back {
     margin-bottom: 48px;

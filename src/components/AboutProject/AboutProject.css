@@ -47,6 +47,7 @@
   margin: 0;
   grid-template-columns: 100px 184px;
   grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
 }
 
 .about-project__grid-title {

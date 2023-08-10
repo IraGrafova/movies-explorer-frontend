@@ -1,6 +1,5 @@
 .footer {
   background-color: #202020;
-  margin-top: 130px;
   padding: 0 10px;
 }
 
@@ -13,7 +12,7 @@
   line-height: normal;
   border-bottom: 1px #424242 solid;
   min-height: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .footer__date {
@@ -24,6 +23,11 @@
   font-weight: 400;
   line-height: normal;
   margin-top: 30px;
+}
+
+.footer__services {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer__service {
@@ -43,8 +47,9 @@
 
 @media (min-width: 768px) {
   .footer {
-    margin-top: 0;
+    margin: 0 auto;
     padding: 0 30px;
+    width: 92%;
   }
 
   .footer__heading {
@@ -61,12 +66,12 @@
   }
 
   .footer__services {
-    display: flex;
+    flex-direction: row;
     gap: 20px;
   }
 
   .footer__service {
-    margin-top: 20px;
+    margin-top: 9px;
     letter-spacing: 0.6px;
   }
 
@@ -77,6 +82,6 @@
 
 @media (min-width: 1280px) {
   .footer {
-    padding: 0 70px;
+    width: 89%;
   }
 }

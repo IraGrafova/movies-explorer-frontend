@@ -1,13 +1,13 @@
 .promo {
   background-color: #073042;
-  min-height: 530px;
+  min-height: 566px;
   background-image: url("../../images/landing-logo.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position-x: center;
+  background-position-y: 137px;
 }
 
 .promo__title {
@@ -19,13 +19,14 @@
   font-weight: 400;
   line-height: 39px;
   letter-spacing: -1.24px;
+  margin-bottom: 64px;
 }
 
 @media (min-width: 768px) {
   .promo {
-    min-height: 766px;
-    margin: 0 19px;
-    background-size: 44%;
+    min-height: 778px;
+    background-size: 42%;
+    background-position-y: 217px;
   }
 
   .promo__title {
@@ -38,12 +39,14 @@
 
 @media (min-width: 1280px) {
 .promo {
-    min-height: 484px;
+    min-height: 523px;
     margin: 0px;
     background-size: 25%;
+    background-position-y: 80px;
 }
 
 .promo__title {
   max-width: 650px;
+  margin-bottom: 77px;
 }
 }

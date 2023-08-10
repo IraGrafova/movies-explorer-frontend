@@ -5,9 +5,9 @@ import "./Login.css";
 
 function Login() {
   return (
-    <>
+    <section>
       <form className="authorization-form">
-        <h2 className="authorization-form__title">Рады видеть!</h2>
+        <h1 className="authorization-form__title">Рады видеть!</h1>
         <label htmlFor="email" className="authorization-form__label">
           E-mail
         </label>
@@ -38,7 +38,7 @@ function Login() {
           <span className="authorization-form__signin-span">Регистрация</span>
         </NavLink>
       </form>
-    </>
+    </section>
   );
 }
 export default Login;

@@ -1,9 +1,17 @@
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  padding: 25px 53px;
   background: #272727;
   margin-top: 39px;
+  padding: 25px 53px;
+}
+
+.navigation__list {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  gap: 24px;
+  margin: 0;
 }
 
 .navigation__link {
@@ -17,6 +25,7 @@
   text-decoration-line: none;
   border-bottom: white 1px solid;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .navigation__link:hover {
@@ -29,6 +38,10 @@
     border-top: black 1px solid;
     gap: 42px;
     justify-content: center;
+  }
+
+  .navigation__list {
+    gap: 40px;
   }
 
   .navigation__link {

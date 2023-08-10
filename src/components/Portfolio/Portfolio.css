@@ -15,6 +15,11 @@
   margin-bottom: 40px;
 }
 
+.portfolio__list {
+  list-style: none;
+  padding: 0;
+}
+
 .portfolio__links {
   display: flex;
   flex-direction: column;

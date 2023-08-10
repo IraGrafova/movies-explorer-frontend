@@ -103,9 +103,9 @@
   }
 
   .about-me__photo {
-    width: 255px;
     max-height: 307px;
     margin-top: 66px;
+    min-width: 255px;
   }
 }
 
@@ -139,5 +139,6 @@
   .about-me__photo {
     width: 270px;
     max-height: 327px;
+    min-width: 270px;
   }
 }

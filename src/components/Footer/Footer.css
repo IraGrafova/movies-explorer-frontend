@@ -16,9 +16,6 @@
   margin-bottom: 30px;
 }
 
-.footer__caption {
-}
-
 .footer__date {
   color: #8b8b8b;
   font-family: "Inter", "Arial", sans-serif;
@@ -37,6 +34,11 @@
   font-weight: 400;
   line-height: normal;
   margin-top: 14px;
+  text-decoration: none;
+}
+
+.footer__service:hover {
+  opacity: 0.7;
 }
 
 @media (min-width: 768px) {

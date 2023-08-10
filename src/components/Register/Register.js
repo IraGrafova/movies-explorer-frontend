@@ -4,9 +4,9 @@ import "./Register.css";
 
 function Register() {
   return (
-    <>
+    <section>
       <form className="authorization-form">
-        <h2 className="authorization-form__title">Добро пожаловать!</h2>
+        <h1 className="authorization-form__title">Добро пожаловать!</h1>
         <label htmlFor="name" className="authorization-form__label">
           Имя
         </label>
@@ -48,7 +48,7 @@ function Register() {
           <span className="authorization-form__signin-span">Войти</span>
         </NavLink>
       </form>
-    </>
+    </section>
   );
 }
 export default Register;

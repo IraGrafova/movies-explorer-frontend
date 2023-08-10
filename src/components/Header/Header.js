@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 import "./Header.css";
 
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 
 function Header() {
@@ -13,25 +13,33 @@ function Header() {
     <header className="header header_authorization">
       {(location.pathname === "/signup" || location.pathname === "/signin") && (
         <div>
-          <img
-            src={logo}
-            className="header__logo-authorization"
-            alt="Логотип"
-          />
+          <NavLink to="/">
+            <img
+              src={logo}
+              className="header__logo-authorization"
+              alt="Логотип"
+            />
+          </NavLink>
         </div>
       )}
 
       {location.pathname === "/" && (
         <div className="header__about-project">
-          <img src={logo} className="header__logo" alt="Логотип" />
-          <div className="header__links">
+          <NavLink to="/">
+            <img
+              src={logo}
+              className="header__logo"
+              alt="Логотип"
+            />
+          </NavLink>
+          <nav className="header__links">
             <NavLink to="/signin" className="header__link">
               Регистрация
             </NavLink>
             <NavLink to="/signin" className="header__link">
               Войти
             </NavLink>
-          </div>
+          </nav>
         </div>
       )}
 
@@ -39,8 +47,14 @@ function Header() {
         location.pathname === "/saved-movies" ||
         location.pathname === "/profile") && (
         <div className="header__movie">
-          <img src={logo} className="header__logo" alt="Логотип" />
-          <button className="header__menu"></button>
+          <NavLink to="/">
+            <img
+              src={logo}
+              className="header__logo"
+              alt="Логотип"
+            />
+          </NavLink>
+          <button className="header__menu" type="button"></button>
           <Navigation />
         </div>
       )}

@@ -1,11 +1,23 @@
+.header{
+  width: 100%;
+}
+
 .header__logo {
   size: 38px;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
 }
 
 .header__logo-authorization {
   size: 38px;
   margin-top: 53px;
   margin-bottom: 50px;
+}
+
+.header__logo-authorization {
+  opacity: 0.8;
 }
 
 .header__about-project {

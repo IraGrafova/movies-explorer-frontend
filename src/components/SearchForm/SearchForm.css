@@ -14,6 +14,10 @@
   align-items: center;
 }
 
+.search-form__field:focus-within {
+  border: 1px solid #3ddc84;
+}
+
 .search-form__input {
   background: #2f2f2f;
   border: none;
@@ -64,6 +68,14 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 108px;
+  }
+
+  .search-form__field:focus-within {
+    border: none;
+  }
+
+  .search-form:focus-within {
+    border: 1px solid #3ddc84;
   }
 
   .search-form__input {

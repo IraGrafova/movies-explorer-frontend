@@ -110,6 +110,10 @@
   color: #4285f4;
 }
 
+.profile-form__signout:hover {
+  opacity: 0.8;
+}
+
 @media (min-width: 768px) {
   .profile-form {
     padding: 0 179px;

@@ -73,7 +73,13 @@
   height: 43px;
   border: none;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
+
+.header__menu:hover {
+  opacity: 0.8;
+}
+
 .header__navigation {
   display: none;
 }

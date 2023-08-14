@@ -9,6 +9,16 @@ import Navigation from "../Navigation/Navigation";
 function Header() {
   let location = useLocation();
 
+  const [isNavigationOpen, setIsNavigationOpen] = React.useState(false);
+
+  function handleOpenNavigation() {
+    setIsNavigationOpen(true);
+  }
+
+  function closeNavigation() {
+    setIsNavigationOpen(false);
+  }
+
   return (
     <header className="header header_authorization">
       {(location.pathname === "/signup" || location.pathname === "/signin") && (
@@ -54,8 +64,8 @@ function Header() {
               alt="Логотип"
             />
           </NavLink>
-          <button className="header__menu" type="button"></button>
-          <Navigation />
+          <button className="header__menu" type="button" onClick={handleOpenNavigation}></button>
+          <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
         </div>
       )}
     </header>

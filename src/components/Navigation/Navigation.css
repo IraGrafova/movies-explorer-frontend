@@ -99,7 +99,7 @@
   cursor: pointer;
 }
 
-.nav__link_active {
+.nav__link-item_active {
   border-bottom: #fff 2px solid;
 }
 
@@ -141,7 +141,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 769px) {
   .nav-background {
     position: static;
     visibility: hidden;

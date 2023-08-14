@@ -61,10 +61,14 @@
   margin-bottom: 15px;
   background: none;
   text-align: right;
+  cursor: pointer;
 }
 
 .profile-form__input:focus {
   outline: none;
+  border: 1px solid #3ddc84;
+  border-radius: 0;
+  min-height: 20px;
 }
 
 .profile-form__submit {

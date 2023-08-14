@@ -17,6 +17,7 @@ function Login() {
           type="email"
           name="email"
           placeholder="E-mail"
+          required
           // value={formValue.email}
           // onChange={handleChange}
           className="authorization-form__input"
@@ -29,6 +30,9 @@ function Login() {
           type="password"
           name="password"
           placeholder="Пароль"
+          required
+          minLength="8"
+          maxLength="30"
           // value={formValue.password}
           // onChange={handleChange}
           className="authorization-form__input"

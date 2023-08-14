@@ -14,7 +14,7 @@
 }
 
 .navigation__link {
-  color: white;
+  color: #FFF;
   text-align: center;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 11px;
@@ -43,7 +43,7 @@
   }
 
   .navigation__link {
-    letter-spacing: 1px;
+   font-size: 13px;
   }
 }
 

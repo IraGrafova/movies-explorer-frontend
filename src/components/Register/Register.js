@@ -16,6 +16,9 @@ function Register() {
             type="text"
             name="name"
             placeholder="Имя"
+            required
+            minLength="2"
+            maxLength="30"
             // value={formValue.email}
             // onChange={handleChange}
             className="authorization-form__input"
@@ -27,6 +30,7 @@ function Register() {
             id="email"
             type="email"
             name="email"
+            required
             // value={formValue.email}
             // onChange={handleChange}
             placeholder="E-mail"
@@ -40,6 +44,9 @@ function Register() {
             type="password"
             name="password"
             placeholder="Пароль"
+            required
+            minLength="8"
+            maxLength="30"
             // value={formValue.password}
             // onChange={handleChange}
             className="authorization-form__input"

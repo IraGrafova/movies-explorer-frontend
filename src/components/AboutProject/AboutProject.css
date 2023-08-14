@@ -84,17 +84,19 @@
 
 @media (min-width: 768px) {
   .about-project {
-    padding: 91px 50px 0;
+    padding: 91px 0 0;
   }
 
   .about-project__heading {
     font-size: 22px;
     letter-spacing: -0.88px;
+    margin: 0 50px;
   }
 
   .about-project__blocks {
     display: flex;
     gap: 40px;
+    margin: 0 50px;
   }
 
   .about-project__block {
@@ -133,11 +135,16 @@
 
 @media (min-width: 1280px) {
   .about-project {
-    padding: 110px 70px 0;
+    padding-top: 110px;
+  }
+
+  .about-project__heading {
+    margin: 0 70px;
   }
 
   .about-project__blocks {
     gap: 53px;
+    margin: 0 70px;
   }
 
   .about-project__description {
@@ -148,6 +155,6 @@
 
   .about-project__grid {
     margin-top: 36px;
-    grid-template-columns: 228px 912px;
+    grid-template-columns: 228px 910px;
   }
 }

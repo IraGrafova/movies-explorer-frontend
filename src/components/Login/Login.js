@@ -1,13 +1,46 @@
+import "./Login.css";
 import React from "react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import "./Login.css";
+import * as MainApi from '../../utils/MainApi';
 
-function Login() {
+function Login({ handleLogin }) {
+
+  const navigate = useNavigate();
+
+  const [formValue, setFormValue] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormValue({
+      ...formValue,
+      [name]: value,
+    });
+  }
+
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    const { email, password } = formValue; // то же самое что formValue.email И formValue.password писать в следующей строке, просто упростили запись, вытащив переменные
+    MainApi.login({ email, password })
+      .then((data) => {
+
+          handleLogin(email);
+          navigate("/movies");
+     //  }
+      })
+      .catch((err) => console.log(err));
+  }
+
+
   return (
     <main className="login">
     <section>
-      <form className="authorization-form">
+      <form onSubmit={handleSubmit} className="authorization-form">
         <h1 className="authorization-form__title">Рады видеть!</h1>
         <label htmlFor="email" className="authorization-form__label">
           E-mail
@@ -18,8 +51,8 @@ function Login() {
           name="email"
           placeholder="E-mail"
           required
-          // value={formValue.email}
-          // onChange={handleChange}
+          value={formValue.email}
+          onChange={handleChange}
           className="authorization-form__input"
         ></input>
         <label htmlFor="password" className="authorization-form__label">
@@ -33,8 +66,8 @@ function Login() {
           required
           minLength="8"
           maxLength="30"
-          // value={formValue.password}
-          // onChange={handleChange}
+          value={formValue.password}
+          onChange={handleChange}
           className="authorization-form__input"
         ></input>
         <button type="submit" className="authorization-form__submit">

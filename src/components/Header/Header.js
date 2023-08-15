@@ -43,7 +43,7 @@ function Header() {
             />
           </NavLink>
           <nav className="header__links">
-            <NavLink to="/signin" className="header__link">
+            <NavLink to="/signup" className="header__link">
               Регистрация
             </NavLink>
             <NavLink to="/signin" className="header__link">

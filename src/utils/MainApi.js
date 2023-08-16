@@ -17,6 +17,7 @@ export const register = (data) => {
 
 export const login = (data) => {
   return fetch(`${baseUrl}/signin`, {
+    credentials: 'include',
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -32,9 +33,6 @@ export const login = (data) => {
 
 
 export const jwt = () => {
-
-  console.log('jwt')
-
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     credentials: 'include',
@@ -46,11 +44,22 @@ export const jwt = () => {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject("Ошибка");
+    return Promise.reject("Ошибка авторизации");
   });
-  //# Если токен не передан или передан без Bearer
-  // 400 — Токен не передан или передан не в том формате
-
-  // # Если передан некорректный токен
-  // 401 — Переданный токен некорректен
 };
+
+export const getUserInfo = () => {
+  return fetch(`${baseUrl}/users/me`, {
+    credentials: 'include',
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+     // Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject("Ошибка получения данных пользователя");
+  });
+}

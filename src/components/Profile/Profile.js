@@ -1,14 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import "./Profile.css";
+import * as MainApi from '../../utils/MainApi';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({ name, email }) {
+function Profile() {
+  const currentUser = useContext(CurrentUserContext);
+
+
   return (
     <main className="profile">
       <section>
         <form className="profile-form">
-          <h2 className="profile-form__title">Привет, {name}!</h2>
+          <h2 className="profile-form__title">Привет, {currentUser.name}!</h2>
           <div className="profile-form__area profile-form__area_name">
             <label htmlFor="name" className="profile-form__label">
               Имя
@@ -20,7 +26,7 @@ function Profile({ name, email }) {
               // value={formValue.email}
               // onChange={handleChange}
               className="profile-form__input"
-              placeholder={name}
+              placeholder={currentUser.name}
             ></input>
           </div>
           <div className="profile-form__area profile-form__area_email">
@@ -34,7 +40,7 @@ function Profile({ name, email }) {
               // value={formValue.email}
               // onChange={handleChange}
               className="profile-form__input"
-              placeholder={email}
+              placeholder={currentUser.email}
             ></input>
           </div>
           <button type="submit" className="profile-form__submit">

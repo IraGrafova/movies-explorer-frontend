@@ -5,7 +5,6 @@ import "./Register.css";
 import * as MainApi from '../../utils/MainApi';
 
 function Register() {
-  console.log('register')
 
   const [formValue, setFormValue] = useState({
     name: "",

@@ -27,11 +27,9 @@ function Login({ handleLogin }) {
 
     const { email, password } = formValue; // то же самое что formValue.email И formValue.password писать в следующей строке, просто упростили запись, вытащив переменные
     MainApi.login({ email, password })
-      .then((data) => {
-
-          handleLogin(email);
+      .then(() => {
+          handleLogin();
           navigate("/movies");
-     //  }
       })
       .catch((err) => console.log(err));
   }

@@ -38,7 +38,6 @@ export const jwt = () => {
     credentials: 'include',
     headers: {
       "content-type": "application/json",
-     // Authorization: `Bearer ${token}`,
     },
   }).then((res) => {
     if (res.ok) {
@@ -54,7 +53,6 @@ export const getUserInfo = () => {
     method: "GET",
     headers: {
       "content-type": "application/json",
-     // Authorization: `Bearer ${token}`,
     },
   }).then((res) => {
     if (res.ok) {
@@ -63,3 +61,36 @@ export const getUserInfo = () => {
     return Promise.reject("Ошибка получения данных пользователя");
   });
 }
+
+export const getMovies = () => {
+  return fetch(`${baseUrl}/movies`, {
+    credentials: 'include',
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject("Ошибка получения сохраненных фильмов");
+  });
+}
+
+export const saveMovies = (card, isLiked) => {
+  if(!isLiked) { return fetch(`${baseUrl}/movies`, {
+    credentials: 'include',
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(card),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject("Ошибка сохранения фильма");
+  });}
+
+}
+

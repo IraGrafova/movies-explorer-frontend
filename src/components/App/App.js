@@ -68,8 +68,7 @@ React.useEffect(() => {
       <Header />
       <Routes>
 
-        <Route path="/" element={
-        <ProtectedRoute element={Main} />} />
+        <Route path="/" element={<Main />} />
         <Route path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn}/>} />
         <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn}/>} />
         <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn}/>} />

@@ -36,7 +36,7 @@
 .movies-card__like:hover {
   opacity: 0.5;
 }
-.movies-card__like:active {
+.movies-card__like_active {
   opacity: 1;
   background-image: url(../../images/like_active.svg);
 }

@@ -24,6 +24,10 @@
   cursor: pointer;
 }
 
+.movies-button_disable {
+  display: none;
+}
+
 .movies-button:hover {
   opacity: 0.8;
 }

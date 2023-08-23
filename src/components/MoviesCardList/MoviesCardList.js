@@ -11,6 +11,21 @@ function MoviesCardList({ dataSearch, isShort }) {
     JSON.parse(localStorage.getItem("movies")) || []
   );
   const [searchMovies, setSearchMovies] = React.useState([]);
+  const [cardToView, setCardToView] = React.useState(JSON.parse(localStorage.getItem("cardToView") || ''));
+  const windowWidth = 768;
+
+  function listenResize () {
+    console.log(window.screen.width)
+    const windowWidth = 768;
+    if (window.screen.width > windowWidth) {
+      setCardToView(4);
+      localStorage.setItem('cardToView', JSON.stringify(4))
+    } else if (window.screen.width < windowWidth) {
+      setCardToView(5);
+      localStorage.setItem('cardToView', JSON.stringify(5))
+    }
+  }
+
 
   React.useEffect(() => {
     if (movies.length === 0) {
@@ -18,11 +33,18 @@ function MoviesCardList({ dataSearch, isShort }) {
         .then((data) => {
           localStorage.setItem("movies", JSON.stringify(data));
           setMovies(data);
+          listenResize()
         })
         .catch((err) => {
           console.log(err);
         });
     }
+
+    window.addEventListener("resize", listenResize);
+
+    return () => {
+      window.removeEventListener("resize", listenResize);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -90,20 +112,43 @@ function MoviesCardList({ dataSearch, isShort }) {
     //   console.log(err);
     // })
   }
+
+function handleAddMovies() {
+
+  // console.log(searchMovies.length)
+  console.log(cardToView)
+
+
+    if (window.screen.width > windowWidth) {
+      setCardToView(cardToView + 4);
+      console.log(cardToView)
+    } else if (window.screen.width < windowWidth) {
+      setCardToView(cardToView + 5);
+    }
+  ;
+}
+
+
   return (
     <section>
       {dataSearch ? (
         <>
           <ul className="movies-list">
             {searchMovies.length > 0 ? (
-              searchMovies.map((card) => (
-                <MoviesCard key={card.id} card={card} onCardLike={handleLike} />
-              ))
+              searchMovies
+                .slice(0, cardToView)
+                .map((card) => (
+                  <MoviesCard
+                    key={card.id}
+                    card={card}
+                    onCardLike={handleLike}
+                  />
+                ))
             ) : (
               <p>Ничего не найдено</p>
             )}
           </ul>
-          <button className="movies-button" type="submit">
+          <button className={`${searchMovies.length > cardToView ? 'movies-button' : 'movies-button_disable'}`} type="submit" onClick={handleAddMovies}>
             Ещё
           </button>
         </>

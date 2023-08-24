@@ -11,6 +11,7 @@ function Movies() {
   const [search, setSearch] = React.useState(
     localStorage.getItem("dataSearch") || ""
   );
+  const [searchSavedMovies, setSearchSavedMovies] = React.useState('');
   const [isShort, setIsShort] = React.useState(
     localStorage.getItem("isShort") || false
   );
@@ -22,7 +23,14 @@ function Movies() {
   function handleSearchMovies(dataSearch) {
     const value = dataSearch;
     setSearch(value);
+    setSearchSavedMovies(value);
     JSON.stringify(localStorage.setItem("dataSearch", value));
+  }
+
+  function handleSearchSavedMovies(dataSearch) {
+    const value = dataSearch;
+    setSearchSavedMovies(value);
+
   }
 
   function handleIsShort(check) {
@@ -50,19 +58,19 @@ function Movies() {
     // console.log('isLiked '+isLiked)
     // card.image = "https://api.nomoreparties.co/" + card.image.url;
 
+    const newCard = {
+      country: card.country,
+      description: card.description,
+      director: card.director,
+      duration: card.duration,
+      id: card.id,
+      image: "https://api.nomoreparties.co/" + card.image.url,
+      nameEN: card.nameEN,
+      nameRU: card.nameRU,
+      trailerLink: card.trailerLink,
+      year: card.year,
+    };
     if (!isLiked) {
-      const newCard = {
-        country: card.country,
-        description: card.description,
-        director: card.director,
-        duration: card.duration,
-        id: card.id,
-        image: "https://api.nomoreparties.co/" + card.image.url,
-        nameEN: card.nameEN,
-        nameRU: card.nameRU,
-        trailerLink: card.trailerLink,
-        year: card.year,
-      };
 
       MainApi.saveMovies(newCard)
         .then((newCard) => {
@@ -75,7 +83,8 @@ function Movies() {
           console.log(err);
         });
     } else {
-      MainApi.deleteMovies(card.id)
+
+      MainApi.deleteMovies(newCard.id)
         .then(() => {
           setSavedCards((savedCards) =>
             savedCards.filter((item) => item.id !== card.id)
@@ -87,11 +96,12 @@ function Movies() {
     }
   }
 console.log(savedCards)
+// const id = savedCards.find((item) => item.id === card.id)._id;
   return (
     <main className="movies">
       <SearchForm
         onSubmit={handleSearchMovies}
-        dataSearch={search}
+        onSubmitSavedSearch = {handleSearchSavedMovies}
         isShort={isShort}
         onCheck={handleIsShort}
       />
@@ -105,8 +115,9 @@ console.log(savedCards)
       )}
       {location.pathname === "/saved-movies" && (
         <SavedMovies
-          dataSearch={search.toLowerCase()}
+          dataSearch={searchSavedMovies.toLowerCase()}
           savedCards={savedCards}
+          isShort={isShort}
         />
       )}
     </main>

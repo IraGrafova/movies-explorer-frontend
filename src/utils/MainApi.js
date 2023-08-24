@@ -106,5 +106,5 @@ export const saveMovies = (card) => {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject("Ошибка сохранения фильма");
+      return Promise.reject("Ошибка удаления фильма");
     });}

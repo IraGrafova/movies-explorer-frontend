@@ -1,10 +1,12 @@
 import React from "react";
 import { useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 import "./SearchForm.css";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({dataSearch, onSubmit, isShort, onCheck}) {
+function SearchForm({onSubmit, isShort, onCheck, onSubmitSavedSearch}) {
+  let location = useLocation();
   const ref = useRef();
   const [search, setSearch] = React.useState('')
 
@@ -15,14 +17,22 @@ function SearchForm({dataSearch, onSubmit, isShort, onCheck}) {
     // onSubmit(ref.current.value);
   }
 
+  function handleSavedSubmit(evt) {
+    evt.preventDefault();
+    onSubmitSavedSearch(ref.current.value)
+    // onSubmit(ref.current.value);
+  }
+
   function handleChange(evt) {
     setSearch(evt.target.value)
   }
 
+
+
   return (
     <section className="search">
       {/* onSubmit={handleSubmit} */}
-      <form className="search-form" onSubmit={handleSubmit}>
+      <form className="search-form" onSubmit={(location.pathname === "/movies") ? handleSubmit : handleSavedSubmit} >
         <div className="search-form__field">
         <input
           className="search-form__input"

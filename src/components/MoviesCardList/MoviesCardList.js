@@ -78,7 +78,7 @@ function MoviesCardList({ dataSearch, isShort, onLike, isLiked, savedCards }) {
       setCardToView(cardToView + 5);
     }
   }
-console.log(savedCards)
+
   return (
     <section>
       {dataSearch ? (

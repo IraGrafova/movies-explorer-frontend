@@ -70,7 +70,7 @@ React.useEffect(() => {
 
         <Route path="/" element={<Main />} />
         <Route path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn}/>} />
-        <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn}/>} />
+        <Route path="/saved-movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn}/>} />
         <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn}/>} />
         <Route path="/signup" element={<Register />} />
         <Route path="/signin" element={<Login handleLogin={handleLogin} />} />

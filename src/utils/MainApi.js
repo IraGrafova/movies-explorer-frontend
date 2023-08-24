@@ -77,8 +77,9 @@ export const getMovies = () => {
   });
 }
 
-export const saveMovies = (card, isLiked) => {
-  if(!isLiked) { return fetch(`${baseUrl}/movies`, {
+export const saveMovies = (card) => {
+  // console.log(card)
+  return fetch(`${baseUrl}/movies`, {
     credentials: 'include',
     method: "POST",
     headers: {
@@ -92,5 +93,18 @@ export const saveMovies = (card, isLiked) => {
     return Promise.reject("Ошибка сохранения фильма");
   });}
 
-}
 
+  export const deleteMovies = (id) => {
+    console.log(id)
+    return fetch(`${baseUrl}/movies/${id}`, {
+      credentials: 'include',
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject("Ошибка сохранения фильма");
+    });}

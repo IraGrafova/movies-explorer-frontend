@@ -2,22 +2,28 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "./MoviesCard.css";
 
-function MoviesCard({ card, isLiked, onCardLike }) {
+function MoviesCard({ card, onLike, savedCards, onDelete}) {
 
   let location = useLocation();
 
+  // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
 
-  // console.log(card)
+  const isLiked = savedCards.some((item) =>
+  card.id === item.id
+)
 
-  function handleLikeClick() {
-    console.log('like2')
-    onCardLike(card);
-  }
+function handleLikeClick() {
+  onLike(card);
+}
 
+// function handleDeleteClick() {
+//   onDelete(card);
+// };
 
+// нажали на лайк = проверяем есть ли карточка в массиве сохраненных = если нет то кнопка красная
   return (
     <li className="movies-card">
-      <img className="movies-card__picture" src={'https://api.nomoreparties.co/'+card.image.url} alt={card.nameRU} />
+      <img className="movies-card__picture" src={location.pathname === '/movies' ? 'https://api.nomoreparties.co/'+card.image.url : card.image} alt={card.nameRU} />
       <div className="movies-card__label">
         <div className="movies-card__about">
           <h2 className="movies-card__title">{card.nameRU}</h2>
@@ -26,7 +32,7 @@ function MoviesCard({ card, isLiked, onCardLike }) {
         {location.pathname === "/movies" && (
           <button
             className={`movies-card__like ${
-              isLiked && "movies-card__like_active"
+              (isLiked && "movies-card__like_active")
             }`}
             type="button"
             onClick={handleLikeClick}
@@ -36,6 +42,7 @@ function MoviesCard({ card, isLiked, onCardLike }) {
           <button
             className="movies-card__delete"
             type="button"
+            onClick={handleLikeClick}
           ></button>
         )}
       </div>

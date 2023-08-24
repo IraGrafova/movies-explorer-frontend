@@ -4,8 +4,6 @@ import "./FilterCheckbox.css";
 
 function FilterCheckbox({isShort, onCheck}) {
 
-  const [check, setCheck] = React.useState(false)
-
   function handleCheked(evt) {
     onCheck(evt.target.checked)
   }

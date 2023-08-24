@@ -6,26 +6,27 @@ import Preloader from "../Preloader/Preloader";
 import * as MoviesApi from "../../utils/MoviesApi";
 import * as MainApi from "../../utils/MainApi";
 
-function MoviesCardList({ dataSearch, isShort }) {
+function MoviesCardList({ dataSearch, isShort, onLike, isLiked, savedCards }) {
   const [movies, setMovies] = React.useState(
     JSON.parse(localStorage.getItem("movies")) || []
   );
   const [searchMovies, setSearchMovies] = React.useState([]);
-  const [cardToView, setCardToView] = React.useState(JSON.parse(localStorage.getItem("cardToView") || ''));
+  const [cardToView, setCardToView] = React.useState(
+    JSON.parse(localStorage.getItem("cardToView")) || ""
+  );
   const windowWidth = 768;
 
-  function listenResize () {
-    console.log(window.screen.width)
+  function listenResize() {
+    console.log(window.screen.width);
     const windowWidth = 768;
     if (window.screen.width > windowWidth) {
       setCardToView(4);
-      localStorage.setItem('cardToView', JSON.stringify(4))
+      localStorage.setItem("cardToView", JSON.stringify(4));
     } else if (window.screen.width < windowWidth) {
       setCardToView(5);
-      localStorage.setItem('cardToView', JSON.stringify(5))
+      localStorage.setItem("cardToView", JSON.stringify(5));
     }
   }
-
 
   React.useEffect(() => {
     if (movies.length === 0) {
@@ -33,7 +34,7 @@ function MoviesCardList({ dataSearch, isShort }) {
         .then((data) => {
           localStorage.setItem("movies", JSON.stringify(data));
           setMovies(data);
-          listenResize()
+          listenResize();
         })
         .catch((err) => {
           console.log(err);
@@ -57,78 +58,27 @@ function MoviesCardList({ dataSearch, isShort }) {
           card.nameEN.toLowerCase().includes(dataSearch)
     );
     setSearchMovies(filteredMovies);
-    localStorage.setItem("savedMovies", JSON.stringify(filteredMovies));
+    localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
   }, [dataSearch, isShort]);
 
   React.useEffect(() => {
-    const savedMovies = JSON.parse(localStorage.getItem("savedMovies"));
-    console.log(savedMovies);
-    setSearchMovies(savedMovies);
+    const filteredMovies = JSON.parse(localStorage.getItem("filteredMovies"));
+    setSearchMovies(filteredMovies);
   }, [dataSearch, isShort]);
 
-  // нужно получить массив сохраненных карточек, затем мы можем добавить состояние isLiked
-
-  // React.useEffect(() => {
-
-  //     MainApi.savedMovies()
-  //       .then((data) => {
-  //         setCards(data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-
-  // }, [loggedIn]);
 
   //     function handleLike () {
   //   // если кликнули на сердечко то отправляется запрос к нашему апи на сохранение фильма, передаем фильм в сохраненные, сердечко горит красным
   // // нужно проверить лайкнуто ли сердечко
 
-  // MainApi.saveMovies( )
-  // .then()
-  // .catch((err) => {
-  //   console.log(err);
-  // })
-  // }
-
-  function handleLike(card) {
-    console.log("like");
-    // если кликнули на сердечко то отправляется запрос к нашему апи на сохранение фильма, передаем фильм в сохраненные, сердечко горит красным
-    // нужно проверить лайкнуто ли сердечко
-    // const isLiked = cards.includes(card);
-
-    // MainApi.saveMovies(card, isLiked)
-    // .then((newCard) => {
-    //   setCards(
-    //     (
-    //       state //в state хранятся карточки из setCards
-    //     ) =>
-    //       state.map((oldCard) =>
-    //         oldCard._id === card._id ? newCard : oldCard
-    //       )
-    //   )
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // })
-  }
-
-function handleAddMovies() {
-
-  // console.log(searchMovies.length)
-  console.log(cardToView)
-
-
+  function handleAddMovies() {
     if (window.screen.width > windowWidth) {
       setCardToView(cardToView + 4);
-      console.log(cardToView)
     } else if (window.screen.width < windowWidth) {
       setCardToView(cardToView + 5);
     }
-  ;
-}
-
-
+  }
+console.log(savedCards)
   return (
     <section>
       {dataSearch ? (
@@ -141,14 +91,23 @@ function handleAddMovies() {
                   <MoviesCard
                     key={card.id}
                     card={card}
-                    onCardLike={handleLike}
+                    onLike={onLike}
+                    savedCards={savedCards}
                   />
                 ))
             ) : (
               <p>Ничего не найдено</p>
             )}
           </ul>
-          <button className={`${searchMovies.length > cardToView ? 'movies-button' : 'movies-button_disable'}`} type="submit" onClick={handleAddMovies}>
+          <button
+            className={`${
+              searchMovies.length > cardToView
+                ? "movies-button"
+                : "movies-button_disable"
+            }`}
+            type="submit"
+            onClick={handleAddMovies}
+          >
             Ещё
           </button>
         </>

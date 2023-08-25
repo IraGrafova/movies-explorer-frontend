@@ -38,15 +38,15 @@
 }
 
 @media (min-width: 1280px) {
-.promo {
+  .promo {
     min-height: 523px;
     margin: 0px;
     background-size: 25%;
     background-position-y: 80px;
-}
+  }
 
-.promo__title {
-  max-width: 650px;
-  margin-bottom: 77px;
-}
+  .promo__title {
+    max-width: 650px;
+    margin-bottom: 77px;
+  }
 }

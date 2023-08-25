@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import "./Footer.css";
 

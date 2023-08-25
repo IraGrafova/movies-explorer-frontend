@@ -1,0 +1,19 @@
+.error {
+  color: #ff3055;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.error-input {
+  color: #ff3055;
+}
+
+.error-center {
+  text-align: center;
+}

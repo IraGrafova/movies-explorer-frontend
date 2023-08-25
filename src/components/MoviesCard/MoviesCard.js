@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "./MoviesCard.css";
 
-function MoviesCard({ card, onLike, savedCards, onDelete }) {
+function MoviesCard({ card, onLike, savedCards, }) {
   let location = useLocation();
 
   const newCard = {
@@ -24,19 +24,26 @@ function MoviesCard({ card, onLike, savedCards, onDelete }) {
   function handleLikeClick() {
     location.pathname === "/movies" ? onLike(newCard) : onLike(card);
   }
-
+  console.log(card);
   // нажали на лайк = проверяем есть ли карточка в массиве сохраненных = если нет то кнопка красная
   return (
     <li className="movies-card">
-      <img
-        className="movies-card__picture"
-        src={
-          location.pathname === "/movies"
-            ? "https://api.nomoreparties.co/" + card.image.url
-            : card.image
-        }
-        alt={card.nameRU}
-      />
+      <a
+        href={card.trailerLink}
+        className="movies-card__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          className="movies-card__picture"
+          src={
+            location.pathname === "/movies"
+              ? "https://api.nomoreparties.co/" + card.image.url
+              : card.image
+          }
+          alt={card.nameRU}
+        />
+      </a>
       <div className="movies-card__label">
         <div className="movies-card__about">
           <h2 className="movies-card__title">{card.nameRU}</h2>

@@ -11,6 +11,8 @@
 
 .profile-form__area {
   display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
   justify-content: space-between;
   width: 100%;
 }
@@ -21,6 +23,11 @@
 
 .profile-form__area_email {
   margin-top: 16px;
+}
+
+.profile-form__area-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile-form__title {
@@ -50,7 +57,6 @@
 .profile-form__input {
   margin: 0;
   padding: 0;
-  border-radius: 8px;
   border: none;
   font-family: "Inter", "Arial", sans-serif;
   color: #fff;
@@ -89,12 +95,18 @@
   cursor: pointer;
 }
 
+.profile-form__submit_disabled {
+  color: #2f2f2f;
+}
+
 .profile-form__submit:hover {
   opacity: 0.7;
 }
 
 .profile-form__signout {
   color: #ee3465;
+  background: none;
+  border: none;
   text-align: center;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 12px;

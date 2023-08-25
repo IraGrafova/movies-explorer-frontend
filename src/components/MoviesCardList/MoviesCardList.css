@@ -32,6 +32,13 @@
   opacity: 0.8;
 }
 
+.movies-list__none {
+  color: #fff;
+  text-align: center;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+}
+
 @media (min-width: 768px) {
   .movies-list {
     margin-top: 70px;

@@ -1,40 +1,38 @@
 import React from "react";
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Register.css";
-import * as MainApi from '../../utils/MainApi';
+import * as MainApi from "../../utils/MainApi";
 import { useFormWithValidation } from "../Hooks/useValidate";
+import "../Hooks/useValidate.css";
 
 function Register() {
-
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
-
-  const [formValue, setFormValue] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setIsValid,
+    errRegister,
+    setErrRegister,
+  } = useFormWithValidation();
 
   const navigate = useNavigate();
-
-  function handleChangeInput(evt) {
-    const { name, value } = evt.target;
-    setFormValue({
-      ...formValue,
-      [name]: value,
-    });
-    handleChange();
-  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    const { name, email, password } = formValue;
+    const { name, email, password } = values;
     MainApi.register({ name, email, password })
       .then(() => {
         navigate("/signin");
       })
-      .catch(() => {
+      .catch((err) => {
+        if (err.status === 409) {
+          setErrRegister("Пользователь с таким email уже существует.");
+        } else {
+          setErrRegister("При регистрации пользователя произошла ошибка.");
+        }
+        setIsValid(false);
       });
   }
 
@@ -54,10 +52,16 @@ function Register() {
             required
             minLength="2"
             maxLength="30"
-            value={formValue.name}
-            onChange={handleChangeInput}
-            className="authorization-form__input"
+            value={values.name ?? ""}
+            onChange={handleChange}
+            className={
+              errors["name"]
+                ? "authorization-form__input error-input"
+                : "authorization-form__input"
+            }
+            pattern='[a-zA-Zа-яА-ЯёЁ\-\s]+'
           ></input>
+          <span className="error">{errors["name"]}</span>
           <label htmlFor="email" className="authorization-form__label">
             E-mail
           </label>
@@ -66,11 +70,17 @@ function Register() {
             type="email"
             name="email"
             required
-            value={formValue.email}
-            onChange={handleChangeInput}
+            value={values.email ?? ""}
+            onChange={handleChange}
+            pattern="[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}"
             placeholder="E-mail"
-            className="authorization-form__input"
+            className={
+              errors["email"]
+                ? "authorization-form__input error-input"
+                : "authorization-form__input"
+            }
           ></input>
+          <span className="error">{errors["email"]}</span>
           <label htmlFor="password" className="authorization-form__label">
             Пароль
           </label>
@@ -82,18 +92,31 @@ function Register() {
             required
             minLength="8"
             maxLength="30"
-            value={formValue.password}
-            onChange={handleChangeInput}
-            className="authorization-form__input"
+            value={values.password ?? ""}
+            onChange={handleChange}
+            className={
+              errors["password"]
+                ? "authorization-form__input error-input"
+                : "authorization-form__input"
+            }
           ></input>
-          <button type="submit" className="authorization-form__submit-register">
+          <span className="error">{errors["password"]}</span>
+          <span className="error error-center">{errRegister}</span>
+          <button
+            type="submit"
+            disabled={!isValid}
+            className={
+              !isValid
+                ? "authorization-form__submit-register_disabled authorization-form__submit-register"
+                : "authorization-form__submit-register"
+            }
+          >
             Зарегистрироваться
           </button>
           <NavLink to="/signin" className="authorization-form__signin">
             Уже зарегистрированы?{" "}
             <span className="authorization-form__signin-span">Войти</span>
           </NavLink>
-          <div>JSON.stringify(isValid)</div>
         </form>
       </section>
     </main>

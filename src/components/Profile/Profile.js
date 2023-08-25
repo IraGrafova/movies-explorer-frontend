@@ -1,54 +1,134 @@
 import React from "react";
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import "./Profile.css";
-import * as MainApi from '../../utils/MainApi';
+import * as MainApi from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useFormWithValidation } from "../Hooks/useValidate";
+import "../Hooks/useValidate.css";
 
-function Profile() {
+function Profile({ setCurrentUser }) {
+  const navigate = useNavigate();
   const currentUser = useContext(CurrentUserContext);
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setIsValid,
+    errRegister,
+    setErrRegister,
+  } = useFormWithValidation();
 
+  React.useEffect(() => {
+    if (
+      (currentUser.name === values.name) &
+      (currentUser.email === values.email)
+    ) {
+      setIsValid(false);
+    }
+  }, []);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    const { name, email } = values;
+
+    MainApi.changeUserInfo({ name, email })
+      .then((data) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => {
+        if (err.status === 409) {
+          setErrRegister("Пользователь с таким email уже существует.");
+        } else {
+          setErrRegister("При регистрации пользователя произошла ошибка.");
+        }
+      });
+  }
+
+  function handleLogout() {
+    MainApi.logout()
+      .then(() => {
+        navigate("/");
+        localStorage.clear();
+      })
+      .catch((err) => {
+        setErrRegister("Ошибка выхода из аккаунта");
+      });
+  }
 
   return (
     <main className="profile">
       <section>
-        <form className="profile-form">
+        <form className="profile-form" onSubmit={handleSubmit}>
           <h2 className="profile-form__title">Привет, {currentUser.name}!</h2>
           <div className="profile-form__area profile-form__area_name">
-            <label htmlFor="name" className="profile-form__label">
-              Имя
-            </label>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              // value={formValue.email}
-              // onChange={handleChange}
-              className="profile-form__input"
-              placeholder={currentUser.name}
-            ></input>
+            <div className="profile-form__area-container">
+              <label htmlFor="name" className="profile-form__label">
+                Имя
+              </label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder={currentUser.name}
+                value={values.name ?? ""}
+                onChange={handleChange}
+                className={
+                  errors["name"]
+                    ? "profile-form__input error-input"
+                    : "profile-form__input"
+                }
+                pattern="[a-zA-Zа-яА-ЯёЁ\-\s]+"
+                required
+                minLength="2"
+                maxLength="30"
+              ></input>
+            </div>
+            <span className="error">{errors["name"]}</span>
           </div>
           <div className="profile-form__area profile-form__area_email">
-            <label htmlFor="email" className="profile-form__label">
-              E-mail
-            </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              // value={formValue.email}
-              // onChange={handleChange}
-              className="profile-form__input"
-              placeholder={currentUser.email}
-            ></input>
+            <div className="profile-form__area-container">
+              <label htmlFor="email" className="profile-form__label">
+                E-mail
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                value={values.email ?? ""}
+                onChange={handleChange}
+                required
+                className={
+                  errors["email"]
+                    ? "profile-form__input error-input"
+                    : "profile-form__input"
+                }
+                placeholder={currentUser.email}
+                pattern="[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}"
+              ></input>
+            </div>
+            <span className="error">{errors["email"]}</span>
+            <span className="error error-center">{errRegister}</span>
           </div>
-          <button type="submit" className="profile-form__submit">
+          <button
+            type="submit"
+            disabled={!isValid}
+            className={
+              !isValid
+                ? "profile-form__submit_disabled profile-form__submit"
+                : "profile-form__submit"
+            }
+          >
             Редактировать
           </button>
-          <NavLink to="/signup" className="profile-form__signout">
+          <button
+            type="submit"
+            className="profile-form__signout"
+            onClick={handleLogout}
+          >
             Выйти из аккаунта
-          </NavLink>
+          </button>
         </form>
       </section>
     </main>

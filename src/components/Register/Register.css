@@ -1,5 +1,5 @@
 .register {
- width: 100%;
+  width: 100%;
 }
 
 .authorization-form {
@@ -71,6 +71,10 @@
 
 .authorization-form__submit-register:hover {
   opacity: 0.8;
+}
+
+.authorization-form__submit-register_disabled {
+  background: #2f2f2f;
 }
 
 .authorization-form__signin {

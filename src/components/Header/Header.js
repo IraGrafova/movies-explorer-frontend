@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import "./Header.css";
 
@@ -36,11 +36,7 @@ function Header() {
       {location.pathname === "/" && (
         <div className="header__about-project">
           <NavLink to="/">
-            <img
-              src={logo}
-              className="header__logo"
-              alt="Логотип"
-            />
+            <img src={logo} className="header__logo" alt="Логотип" />
           </NavLink>
           <nav className="header__links">
             <NavLink to="/signup" className="header__link">
@@ -58,14 +54,14 @@ function Header() {
         location.pathname === "/profile") && (
         <div className="header__movie">
           <NavLink to="/">
-            <img
-              src={logo}
-              className="header__logo"
-              alt="Логотип"
-            />
+            <img src={logo} className="header__logo" alt="Логотип" />
           </NavLink>
-          <button className="header__menu" type="button" onClick={handleOpenNavigation}></button>
-          <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
+          <button
+            className="header__menu"
+            type="button"
+            onClick={handleOpenNavigation}
+          ></button>
+          <Navigation isOpen={isNavigationOpen} onClose={closeNavigation} />
         </div>
       )}
     </header>

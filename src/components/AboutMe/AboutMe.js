@@ -9,7 +9,11 @@ function AboutMe() {
     <section className="about-me" id="about-me">
       <h2 className="about-me__heading">Студент</h2>
       <div className="about-me__block">
-        <img className="about-me__photo" src={myPhoto} alt="Аватар пользователя" />
+        <img
+          className="about-me__photo"
+          src={myPhoto}
+          alt="Аватар пользователя"
+        />
         <div className="about-me__about">
           <h3 className="about-me__title">Ирина</h3>
           <h4 className="about-me__info">Фронтенд-разработчик, 27 лет</h4>

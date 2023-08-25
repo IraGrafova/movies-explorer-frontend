@@ -7,7 +7,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import Preloader from "../Preloader/Preloader";
 import * as MainApi from "../../utils/MainApi";
 
-function SavedMovies({ savedCards, isShort, dataSearch }) {
+function SavedMovies({ savedCards, isShort, dataSearch, onLike }) {
   console.log(dataSearch)
 
   const [searchedMovie, setSearchedMovie] = React.useState([]);
@@ -55,7 +55,7 @@ function SavedMovies({ savedCards, isShort, dataSearch }) {
             {
             searchedMovie.length > 0 ? (
               searchedMovie.map((card) => (
-                <MoviesCard key={card.id} card={card} savedCards={savedCards} />
+                <MoviesCard key={card.id} card={card} savedCards={savedCards} onLike={onLike}/>
               ))
             ) : (
               <p>Ничего не найдено</p>
@@ -66,7 +66,7 @@ function SavedMovies({ savedCards, isShort, dataSearch }) {
           <ul className="movies-list">
             {savedCards ? (
               savedCards.map((card) => (
-                <MoviesCard key={card.id} card={card} savedCards={savedCards} />
+                <MoviesCard key={card.id} card={card} savedCards={savedCards} onLike={onLike}/>
               ))
             ) : (
               <p>Сохраненные фильмы отсутствуют</p>

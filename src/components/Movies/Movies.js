@@ -11,7 +11,7 @@ function Movies() {
   const [search, setSearch] = React.useState(
     localStorage.getItem("dataSearch") || ""
   );
-  const [searchSavedMovies, setSearchSavedMovies] = React.useState('');
+  const [searchSavedMovies, setSearchSavedMovies] = React.useState("");
   const [isShort, setIsShort] = React.useState(
     localStorage.getItem("isShort") || false
   );
@@ -30,11 +30,9 @@ function Movies() {
   function handleSearchSavedMovies(dataSearch) {
     const value = dataSearch;
     setSearchSavedMovies(value);
-
   }
 
   function handleIsShort(check) {
-    // console.log(check)
     const value = check;
     setIsShort(value);
     JSON.stringify(localStorage.setItem("isShort", value));
@@ -51,43 +49,26 @@ function Movies() {
   }, []);
 
   function handleLike(card) {
-    console.log("like");
-    // console.log(card.id)
-    console.log(card);
-    const isLiked = savedCards.some((item) => card.id === item.id);
-    // console.log('isLiked '+isLiked)
-    // card.image = "https://api.nomoreparties.co/" + card.image.url;
+    const isLiked = savedCards.some((item) => card.movieId === item.movieId);
 
-    const newCard = {
-      country: card.country,
-      description: card.description,
-      director: card.director,
-      duration: card.duration,
-      id: card.id,
-      image: "https://api.nomoreparties.co/" + card.image.url,
-      nameEN: card.nameEN,
-      nameRU: card.nameRU,
-      trailerLink: card.trailerLink,
-      year: card.year,
-    };
     if (!isLiked) {
-
-      MainApi.saveMovies(newCard)
+      MainApi.saveMovies(card)
         .then((newCard) => {
-          // newCard.image = "https://api.nomoreparties.co/" + card.image.url;
-          const value =  savedCards
-          console.log(value)
           setSavedCards([newCard, ...savedCards]);
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
+      const likedCard = savedCards.find(
+        (item) => card.movieId === item.movieId
+      );
 
-      MainApi.deleteMovies(newCard.id)
+      MainApi.deleteMovies(likedCard._id)
         .then(() => {
+          console.log(card.id);
           setSavedCards((savedCards) =>
-            savedCards.filter((item) => item.id !== card.id)
+            savedCards.filter((item) => item.movieId !== card.movieId)
           );
         })
         .catch((err) => {
@@ -95,13 +76,12 @@ function Movies() {
         });
     }
   }
-console.log(savedCards)
-// const id = savedCards.find((item) => item.id === card.id)._id;
+
   return (
     <main className="movies">
       <SearchForm
         onSubmit={handleSearchMovies}
-        onSubmitSavedSearch = {handleSearchSavedMovies}
+        onSubmitSavedSearch={handleSearchSavedMovies}
         isShort={isShort}
         onCheck={handleIsShort}
       />
@@ -118,6 +98,7 @@ console.log(savedCards)
           dataSearch={searchSavedMovies.toLowerCase()}
           savedCards={savedCards}
           isShort={isShort}
+          onLike={handleLike}
         />
       )}
     </main>

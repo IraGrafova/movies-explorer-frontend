@@ -3,8 +3,11 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Register.css";
 import * as MainApi from '../../utils/MainApi';
+import { useFormWithValidation } from "../Hooks/useValidate";
 
 function Register() {
+
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
   const [formValue, setFormValue] = useState({
     name: "",
@@ -14,12 +17,13 @@ function Register() {
 
   const navigate = useNavigate();
 
-  function handleChange(evt) {
+  function handleChangeInput(evt) {
     const { name, value } = evt.target;
     setFormValue({
       ...formValue,
       [name]: value,
     });
+    handleChange();
   }
 
   function handleSubmit(evt) {
@@ -51,7 +55,7 @@ function Register() {
             minLength="2"
             maxLength="30"
             value={formValue.name}
-            onChange={handleChange}
+            onChange={handleChangeInput}
             className="authorization-form__input"
           ></input>
           <label htmlFor="email" className="authorization-form__label">
@@ -63,7 +67,7 @@ function Register() {
             name="email"
             required
             value={formValue.email}
-            onChange={handleChange}
+            onChange={handleChangeInput}
             placeholder="E-mail"
             className="authorization-form__input"
           ></input>
@@ -79,7 +83,7 @@ function Register() {
             minLength="8"
             maxLength="30"
             value={formValue.password}
-            onChange={handleChange}
+            onChange={handleChangeInput}
             className="authorization-form__input"
           ></input>
           <button type="submit" className="authorization-form__submit-register">
@@ -89,6 +93,7 @@ function Register() {
             Уже зарегистрированы?{" "}
             <span className="authorization-form__signin-span">Войти</span>
           </NavLink>
+          <div>JSON.stringify(isValid)</div>
         </form>
       </section>
     </main>

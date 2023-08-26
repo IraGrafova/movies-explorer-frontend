@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:3000";
+export const baseUrl = "https://api.grafs-diplom.nomoredomains.xyz";
 
 export const register = (data) => {
   return fetch(`${baseUrl}/signup`, {

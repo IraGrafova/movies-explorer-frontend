@@ -3,6 +3,9 @@ http://grafs-diplom.nomoredomainsicu.ru/movies
 По макету:
 https://www.figma.com/file/05EG3210nyaedwLJ6Tnp0T/Diploma-(Copy)?type=design&node-id=891-3857&mode=dev
 
+Пулл реквест
+https://github.com/IraGrafova/movies-explorer-frontend/pull/2#issue-1868666067
+
 npm run start
 
 In the project directory, you can run:

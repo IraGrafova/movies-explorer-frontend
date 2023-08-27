@@ -35,7 +35,7 @@ function Login({ handleLogin }) {
           setErrRegister(
             "При авторизации произошла ошибка. Токен не передан или передан не в том формате."
           );
-        }
+        } else setErrRegister("При авторизации произошла ошибка");
         setIsValid(false);
       });
   }

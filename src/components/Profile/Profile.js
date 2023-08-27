@@ -12,6 +12,7 @@ function Profile({ setCurrentUser }) {
   const currentUser = useContext(CurrentUserContext);
   const {
     values,
+    setValues,
     handleChange,
     errors,
     isValid,
@@ -27,7 +28,7 @@ function Profile({ setCurrentUser }) {
     ) {
       setIsValid(false);
     }
-  }, []);
+  }, [currentUser.email, currentUser.name, setIsValid, values]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -45,6 +46,14 @@ function Profile({ setCurrentUser }) {
         }
       });
   }
+
+  React.useEffect(() => {
+    setValues((values) => ({
+      ...values,
+      name: currentUser.name,
+      email: currentUser.email,
+    }));
+  }, [currentUser, setValues]);
 
   function handleLogout() {
     MainApi.logout()
@@ -72,7 +81,8 @@ function Profile({ setCurrentUser }) {
                 type="text"
                 name="name"
                 placeholder={currentUser.name}
-                value={values.name ?? ""}
+                defaultValue={currentUser.name}
+                value={values.name ?? currentUser.name}
                 onChange={handleChange}
                 className={
                   errors["name"]
@@ -96,7 +106,7 @@ function Profile({ setCurrentUser }) {
                 id="email"
                 type="email"
                 name="email"
-                value={values.email ?? ""}
+                defaultValue={currentUser.email}
                 onChange={handleChange}
                 required
                 className={

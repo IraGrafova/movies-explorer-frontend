@@ -2,6 +2,7 @@ export const baseUrl = "https://api.grafs-diplom.nomoredomains.xyz";
 
 export const register = (data) => {
   return fetch(`${baseUrl}/signup`, {
+    credentials: "include",
     method: "POST",
     headers: {
       "content-type": "application/json",

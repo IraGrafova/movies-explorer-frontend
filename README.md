@@ -1,6 +1,6 @@
-nav__link_active - добавить подчеркивание элементу бургерного меню \
-nav-background_visibility - открыть бургерное меню (стиль необходимо добавить элементу nav-background) - находится в Navigation
+http://grafs-diplom.nomoredomainsicu.ru/movies
 
+По макету:
 https://www.figma.com/file/05EG3210nyaedwLJ6Tnp0T/Diploma-(Copy)?type=design&node-id=891-3857&mode=dev
 
 npm run start

@@ -82,7 +82,6 @@ function Profile({ setCurrentUser }) {
                 name="name"
                 placeholder={currentUser.name}
                 defaultValue={currentUser.name}
-                value={values.name ?? currentUser.name}
                 onChange={handleChange}
                 className={
                   errors["name"]

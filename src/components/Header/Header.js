@@ -6,7 +6,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({ loggedIn }) {
   let location = useLocation();
 
   const [isNavigationOpen, setIsNavigationOpen] = React.useState(false);
@@ -38,14 +38,25 @@ function Header() {
           <NavLink to="/">
             <img src={logo} className="header__logo" alt="Логотип" />
           </NavLink>
-          <nav className="header__links">
-            <NavLink to="/signup" className="header__link">
-              Регистрация
-            </NavLink>
-            <NavLink to="/signin" className="header__link">
-              Войти
-            </NavLink>
-          </nav>
+          {loggedIn ? (
+            <>
+              <button
+                className="header__menu"
+                type="button"
+                onClick={handleOpenNavigation}
+              ></button>
+              <Navigation isOpen={isNavigationOpen} onClose={closeNavigation} />
+            </>
+          ) : (
+            <nav className="header__links">
+              <NavLink to="/signup" className="header__link">
+                Регистрация
+              </NavLink>
+              <NavLink to="/signin" className="header__link">
+                Войти
+              </NavLink>
+            </nav>
+          )}
         </div>
       )}
 

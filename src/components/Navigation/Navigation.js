@@ -12,7 +12,9 @@ function Navigation({ isOpen, onClose }) {
         isOpen ? "nav-background_visibility" : ""
       }`}
     >
-      <nav className="nav">
+      <nav className={`nav ${
+                location.pathname === "/" ? "nav-about" : ""
+              }`}>
         <div className="nav__window">
           <button
             className="nav__close"

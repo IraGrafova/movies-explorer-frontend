@@ -122,9 +122,15 @@
   margin-left: 13px;
 }
 
+
+
 @media (min-width: 768px) {
   .nav {
     min-width: 520px;
+  }
+
+  .nav-about {
+    background-color: #073042;
   }
 
   .nav__links {
@@ -156,6 +162,11 @@
     position: static;
     flex-direction: row;
   }
+
+  .nav-about {
+    background-color: #073042;
+  }
+
   .nav__close {
     display: none;
   }

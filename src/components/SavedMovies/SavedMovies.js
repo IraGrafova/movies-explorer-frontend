@@ -53,7 +53,7 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike }) {
             {savedCards.length > 0 ? (
               savedCards.map((card) => (
                 <MoviesCard
-                  key={card.id}
+                  key={card.movieId}
                   card={card}
                   savedCards={savedCards}
                   onLike={onLike}

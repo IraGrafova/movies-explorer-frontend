@@ -9,7 +9,7 @@ function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
   const [movies, setMovies] = React.useState(
     JSON.parse(localStorage.getItem("movies")) || []
   );
-  const [searchMovies, setSearchMovies] = React.useState([]);
+  const [searchMovies, setSearchMovies] = React.useState(JSON.parse(localStorage.getItem("filteredMovies")) ||[]);
   const [cardToView, setCardToView] = React.useState(
     JSON.parse(localStorage.getItem("cardToView")) || ""
   );
@@ -48,7 +48,7 @@ function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
 
   React.useEffect(() => {
     const filteredMovies = movies.filter((card) =>
-      isShort
+      JSON.parse(isShort)
         ? (card.nameRU.toLowerCase().includes(dataSearch) ||
             card.nameEN.toLowerCase().includes(dataSearch)) &&
           card.duration < 40
@@ -57,7 +57,7 @@ function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
     );
     setSearchMovies(filteredMovies);
     localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
-  }, [dataSearch, isShort, movies]);
+  }, [dataSearch, isShort, ]);
 
   React.useEffect(() => {
     const filteredMovies = JSON.parse(localStorage.getItem("filteredMovies"));

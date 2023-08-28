@@ -24,8 +24,7 @@ function MoviesCard({ card, onLike, savedCards, }) {
   function handleLikeClick() {
     location.pathname === "/movies" ? onLike(newCard) : onLike(card);
   }
-  console.log(card);
-  // нажали на лайк = проверяем есть ли карточка в массиве сохраненных = если нет то кнопка красная
+
   return (
     <li className="movies-card">
       <a

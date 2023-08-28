@@ -80,6 +80,7 @@ function App() {
                 element={Profile}
                 setCurrentUser={setCurrentUser}
                 loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
               />
             }
           />

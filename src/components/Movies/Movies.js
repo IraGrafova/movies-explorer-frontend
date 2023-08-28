@@ -15,8 +15,10 @@ function Movies() {
   const [isShort, setIsShort] = React.useState(
     localStorage.getItem("isShort") || false
   );
+
+  console.log(isShort)
+
   const [savedCards, setSavedCards] = React.useState([]);
-  // console.log(isShort)
 
   let location = useLocation();
 
@@ -83,7 +85,9 @@ function Movies() {
         onSubmit={handleSearchMovies}
         onSubmitSavedSearch={handleSearchSavedMovies}
         isShort={isShort}
+        setIsShort={setIsShort}
         onCheck={handleIsShort}
+        setSearch={setSearch}
       />
       {location.pathname === "/movies" && (
         <MoviesCardList

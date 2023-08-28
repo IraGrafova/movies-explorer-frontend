@@ -3,9 +3,12 @@ import React from "react";
 import "./FilterCheckbox.css";
 
 function FilterCheckbox({ isShort, onCheck }) {
+  
   function handleCheked(evt) {
     onCheck(evt.target.checked);
   }
+
+  const short = JSON.parse(isShort)
 
   return (
     <div className="filter">
@@ -16,16 +19,16 @@ function FilterCheckbox({ isShort, onCheck }) {
           name="checkbox"
           id="checkbox"
           onChange={handleCheked}
-          value={isShort}
+          checked={short ?? false}
         />
         <span
           className={`filter-checkbox__toggle ${
-            !isShort && "filter-checkbox__toggle-shutdown"
+            !short && "filter-checkbox__toggle-shutdown"
           }`}
         >
           <span
             className={`filter-checkbox__toggle-button ${
-              !isShort && "filter-checkbox__toggle-button-shutdown"
+              !short && "filter-checkbox__toggle-button-shutdown"
             }`}
           ></span>
         </span>

@@ -7,7 +7,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useFormWithValidation } from "../Hooks/useValidate";
 import "../Hooks/useValidate.css";
 
-function Profile({ setCurrentUser }) {
+function Profile({ setCurrentUser, setLoggedIn }) {
   const navigate = useNavigate();
   const currentUser = useContext(CurrentUserContext);
   const {
@@ -60,6 +60,7 @@ function Profile({ setCurrentUser }) {
       .then(() => {
         navigate("/");
         localStorage.clear();
+        setLoggedIn(false);
       })
       .catch((err) => {
         setErrRegister("Ошибка выхода из аккаунта");

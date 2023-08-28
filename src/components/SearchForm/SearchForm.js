@@ -31,9 +31,9 @@ function SearchForm({ onSubmit, isShort, setIsShort, onCheck, onSubmitSavedSearc
 
   function handleSubmit(evt) {
     evt.preventDefault();
-
     const {movie} = values;
     onSubmit(movie);
+
   }
 
   function handleSavedSubmit(evt) {
@@ -55,6 +55,14 @@ function SearchForm({ onSubmit, isShort, setIsShort, onCheck, onSubmitSavedSearc
   //   }));
   // }, []);
 
+  const [errMessage, setErrMessage] = React.useState('');
+
+  function invalidHandler (evt) {
+    evt.preventDefault();
+    const validationMessage = evt.target.validationMessage;
+    setErrMessage('Нужно ввести ключевое слово')
+  }
+
 
 console.log(isValid)
 
@@ -65,7 +73,7 @@ console.log(isValid)
         onSubmit={
           location.pathname === "/movies" ? handleSubmit : handleSavedSubmit
         }
-        
+
       >
         <div className="search-form__field">
           <input
@@ -79,13 +87,13 @@ console.log(isValid)
             value={values.movie ?? ''}
             onChange={handleChange}
             minLength={1}
+            onInvalid={invalidHandler}
           />
-          <button className="search-form__submit" type="submit" disabled={!isValid}></button>
+          <button className={!isValid ? "search-form__submit search-form__submit_disabled" : "search-form__submit"} type="submit" disabled={!isValid}></button>
         </div>
         <FilterCheckbox isShort={isShort} onCheck={onCheck}/>
       </form>
-      <div></div>
-      <span className="error">{errors["movie"]}</span>
+          <span className="error error-search">{errMessage}</span>
     </section>
   );
 }

@@ -5,7 +5,7 @@ import * as MainApi from "../../utils/MainApi";
 import { useFormWithValidation } from "../Hooks/useValidate";
 import "../Hooks/useValidate.css";
 
-function Register() {
+function Register({ handleLogin }) {
   const {
     values,
     handleChange,
@@ -24,7 +24,9 @@ function Register() {
     const { name, email, password } = values;
     MainApi.register({ name, email, password })
       .then(() => {
-        navigate("/signin");
+        handleLogin();
+        navigate("/movies");
+        handleChange();
       })
       .catch((err) => {
         if (err.status === 409) {

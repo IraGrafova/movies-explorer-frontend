@@ -41,7 +41,7 @@ function App() {
     MainApi.jwt()
       .then(() => {
         setLoggedIn(true);
-        navigate(path, {replace:true});
+        navigate(path);
       })
       .catch((err) => {
         console.log(err);

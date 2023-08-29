@@ -21,3 +21,14 @@
 .error-search {
   margin-left: 5px;
 }
+
+.complete {
+  color: #3ddc84;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 auto;
+  text-align: center;
+}

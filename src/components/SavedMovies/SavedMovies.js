@@ -7,38 +7,29 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike }) {
   const [searchedMovie, setSearchedMovie] = React.useState([]);
 
   React.useEffect(() => {
-    dataSearch = "";
-  }, []);
-
-  React.useEffect(() => {
     const filteredMovies = savedCards.filter((card) =>
-      isShort
-        ? (card.nameRU.toLowerCase().includes(dataSearch) ||
+    isShort
+        ? ((card.nameRU.toLowerCase().includes(dataSearch) ||
             card.nameEN.toLowerCase().includes(dataSearch)) &&
-          card.duration < 40
-        : card.nameRU.toLowerCase().includes(dataSearch) ||
-          card.nameEN.toLowerCase().includes(dataSearch)
+          card.duration < 40)
+        : (card.nameRU.toLowerCase().includes(dataSearch) ||
+          card.nameEN.toLowerCase().includes(dataSearch))
     );
+    // console.log(filteredMovies)
     setSearchedMovie(filteredMovies);
-    localStorage.setItem("filteredSavedMovies", JSON.stringify(filteredMovies));
+    // console.log(searchedMovie)
   }, [isShort, dataSearch, savedCards]);
 
-  React.useEffect(() => {
-    const filteredMovies = JSON.parse(
-      localStorage.getItem("filteredSavedMovies")
-    );
-    setSearchedMovie(filteredMovies);
-  }, [dataSearch, isShort]);
 
   return (
     <main className="movies">
       <section>
         {dataSearch ? (
           <ul className="movies-list">
-            {searchedMovie.length > 0 ? (
+            {searchedMovie?.length > 0 ? (
               searchedMovie.map((card) => (
                 <MoviesCard
-                  key={card.id}
+                  key={card.movieId}
                   card={card}
                   savedCards={savedCards}
                   onLike={onLike}

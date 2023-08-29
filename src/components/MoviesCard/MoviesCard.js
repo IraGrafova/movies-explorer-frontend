@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./MoviesCard.css";
 
 function MoviesCard({ card, onLike, savedCards, }) {
+
   let location = useLocation();
 
   const newCard = {

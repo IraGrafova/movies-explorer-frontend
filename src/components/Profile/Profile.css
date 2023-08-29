@@ -97,6 +97,11 @@
 
 .profile-form__submit_disabled {
   color: #2f2f2f;
+  opacity: 1;
+}
+
+.profile-form__submit_disabled:hover {
+  opacity: 1;
 }
 
 .profile-form__submit:hover {
@@ -135,6 +140,12 @@
     padding: 0 179px;
     margin-top: 236px;
   }
+  .profile-form__submit_disabled {
+    color: #2f2f2f;
+  }
+  .profile-form__submit_disabled:hover {
+    opacity: 1;
+  }
 
   .profile-form__title {
     margin-top: 0;
@@ -169,5 +180,12 @@
 
   .profile-form__submit {
     margin-top: 189px;
+  }
+
+  .profile-form__submit_disabled {
+    color: #2f2f2f;
+  }
+  .profile-form__submit_disabled:hover {
+    opacity: 1;
   }
 }

@@ -5,46 +5,62 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import Preloader from "../Preloader/Preloader";
 import * as MoviesApi from "../../utils/MoviesApi";
 
-function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
-  const [movies, setMovies] = React.useState(
-    JSON.parse(localStorage.getItem("movies")) || []
+function MoviesCardList({
+  dataSearch,
+  isShort,
+  onLike,
+  savedCards,
+  movies,
+  setMovies,
+  cardToView,
+  setCardToView,
+  windowWidth,
+  listenResize,
+}) {
+  // const [movies, setMovies] = React.useState(
+  //   JSON.parse(localStorage.getItem("movies")) || []
+  // );
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [searchMovies, setSearchMovies] = React.useState(
+    JSON.parse(localStorage.getItem("filteredMovies")) || []
   );
-  const [searchMovies, setSearchMovies] = React.useState(JSON.parse(localStorage.getItem("filteredMovies")) ||[]);
-  const [cardToView, setCardToView] = React.useState(
-    JSON.parse(localStorage.getItem("cardToView")) || ""
-  );
-  const windowWidth = 768;
+  // const [cardToView, setCardToView] = React.useState(
+  //   JSON.parse(localStorage.getItem("cardToView")) || ""
+  // );
+  // const windowWidth = 768;
 
-  function listenResize() {
-    const windowWidth = 768;
-    if (window.screen.width > windowWidth) {
-      setCardToView(4);
-      localStorage.setItem("cardToView", JSON.stringify(4));
-    } else if (window.screen.width < windowWidth) {
-      setCardToView(5);
-      localStorage.setItem("cardToView", JSON.stringify(5));
-    }
-  }
+  // function listenResize() {
+  //   const windowWidth = 768;
+  //   if (window.screen.width > windowWidth) {
+  //     setCardToView(7);
+  //     localStorage.setItem("cardToView", JSON.stringify(4));
+  //   } else if (window.screen.width < windowWidth) {
+  //     setCardToView(5);
+  //     localStorage.setItem("cardToView", JSON.stringify(5));
+  //   }
+  // }
 
-  React.useEffect(() => {
-    if (movies.length === 0) {
-      MoviesApi.getMovies()
-        .then((data) => {
-          localStorage.setItem("movies", JSON.stringify(data));
-          setMovies(data);
-          listenResize();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+  // React.useEffect(() => {
+  //   if (dataSearch) {
+  //     MoviesApi.getMovies()
+  //       .then((data) => {
+  //         localStorage.setItem("movies", JSON.stringify(data));
+  //         setMovies(data);
+  //         listenResize();
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
 
-    window.addEventListener("resize", listenResize);
+  //   window.addEventListener("resize", listenResize);
 
-    return () => {
-      window.removeEventListener("resize", listenResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", listenResize);
+  //   };
+  // }, []);
+
+
 
   React.useEffect(() => {
     const filteredMovies = movies.filter((card) =>
@@ -57,16 +73,23 @@ function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
     );
     setSearchMovies(filteredMovies);
     localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
-  }, [dataSearch, isShort, ]);
+    filteredMovies.length > 0 && setIsLoading(true);
+  }, [dataSearch, isShort, movies]);
 
-  React.useEffect(() => {
-    const filteredMovies = JSON.parse(localStorage.getItem("filteredMovies"));
-    setSearchMovies(filteredMovies);
-  }, [dataSearch, isShort]);
+  // React.useEffect(() => {
+  //   const filteredMovies = JSON.parse(localStorage.getItem("filteredMovies"));
+  //   setSearchMovies(filteredMovies);
+  // }, [])
+
+  // React.useEffect(() => {
+  //   const filteredMovies = JSON.parse(localStorage.getItem("filteredMovies"));
+  //   setSearchMovies(filteredMovies);
+  //   setIsLoading(true);
+  // }, [dataSearch, isShort, movies]);
 
   function handleAddMovies() {
     if (window.screen.width > windowWidth) {
-      setCardToView(cardToView + 4);
+      setCardToView(cardToView + 7);
     } else if (window.screen.width < windowWidth) {
       setCardToView(cardToView + 5);
     }
@@ -74,7 +97,7 @@ function MoviesCardList({ dataSearch, isShort, onLike, savedCards }) {
 
   return (
     <section>
-      {dataSearch ? (
+      {isLoading ? (
         <>
           <ul className="movies-list">
             {searchMovies.length > 0 ? (

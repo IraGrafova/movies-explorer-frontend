@@ -6,8 +6,12 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import * as MainApi from "../../utils/MainApi";
+import * as MoviesApi from "../../utils/MoviesApi";
 
 function Movies() {
+  const [movies, setMovies] = React.useState(
+    JSON.parse(localStorage.getItem("movies")) || []
+  );
   const [search, setSearch] = React.useState(
     localStorage.getItem("dataSearch") || ""
   );
@@ -16,17 +20,50 @@ function Movies() {
     localStorage.getItem("isShort") || false
   );
 
-  console.log(isShort)
+  console.log("Movies  " + isShort);
 
+  const [cardToView, setCardToView] = React.useState(
+    JSON.parse(localStorage.getItem("cardToView")) || ""
+  );
   const [savedCards, setSavedCards] = React.useState([]);
+
+  const windowWidth = 768;
+
+  function listenResize() {
+    const windowWidth = 768;
+    if (window.screen.width > windowWidth) {
+      setCardToView(7);
+      localStorage.setItem("cardToView", JSON.stringify(4));
+    } else if (window.screen.width < windowWidth) {
+      setCardToView(5);
+      localStorage.setItem("cardToView", JSON.stringify(5));
+    }
+  }
 
   let location = useLocation();
 
   function handleSearchMovies(dataSearch) {
+    if ((dataSearch.length > 0) & (movies.length === 0)) {
+      MoviesApi.getMovies()
+        .then((data) => {
+          localStorage.setItem("movies", JSON.stringify(data));
+          setMovies(data);
+          listenResize();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
     const value = dataSearch;
     setSearch(value);
-    setSearchSavedMovies(value);
     JSON.stringify(localStorage.setItem("dataSearch", value));
+
+    window.addEventListener("resize", listenResize);
+
+    return () => {
+      window.removeEventListener("resize", listenResize);
+    };
   }
 
   function handleSearchSavedMovies(dataSearch) {
@@ -36,8 +73,14 @@ function Movies() {
 
   function handleIsShort(check) {
     const value = check;
-    setIsShort(value);
-    JSON.stringify(localStorage.setItem("isShort", value));
+
+    console.log(value);
+
+    if (location.pathname === "/movies") {
+      JSON.stringify(localStorage.setItem("isShort", value));
+      console.log(isShort)
+      setIsShort(value);
+    } else setIsShort(value);
   }
 
   React.useEffect(() => {
@@ -68,7 +111,6 @@ function Movies() {
 
       MainApi.deleteMovies(likedCard._id)
         .then(() => {
-          console.log(card.id);
           setSavedCards((savedCards) =>
             savedCards.filter((item) => item.movieId !== card.movieId)
           );
@@ -95,6 +137,10 @@ function Movies() {
           isShort={isShort}
           onLike={handleLike}
           savedCards={savedCards}
+          cardToView={cardToView}
+          setCardToView={setCardToView}
+          windowWidth={windowWidth}
+          movies={movies}
         />
       )}
       {location.pathname === "/saved-movies" && (
@@ -103,6 +149,8 @@ function Movies() {
           savedCards={savedCards}
           isShort={isShort}
           onLike={handleLike}
+          movies={movies}
+          setSearchSavedMovies={setSearchSavedMovies}
         />
       )}
     </main>

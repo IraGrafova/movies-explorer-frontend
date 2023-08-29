@@ -21,6 +21,7 @@ function Profile({ setCurrentUser, setLoggedIn }) {
     setErrRegister,
   } = useFormWithValidation();
 
+  const [successMessage, setSuccessMessage] = React.useState("");
   React.useEffect(() => {
     if (
       (currentUser.name === values.name) &
@@ -37,6 +38,7 @@ function Profile({ setCurrentUser, setLoggedIn }) {
     MainApi.changeUserInfo({ name, email })
       .then((data) => {
         setCurrentUser(data);
+        setSuccessMessage("Профиль обновлен");
       })
       .catch((err) => {
         if (err.status === 409) {
@@ -46,6 +48,11 @@ function Profile({ setCurrentUser, setLoggedIn }) {
         }
       });
   }
+
+  React.useEffect(() => {
+    setSuccessMessage("");
+    setErrRegister("");
+  }, [values]);
 
   React.useEffect(() => {
     setValues((values) => ({
@@ -121,6 +128,7 @@ function Profile({ setCurrentUser, setLoggedIn }) {
             <span className="error">{errors["email"]}</span>
             <span className="error error-center">{errRegister}</span>
           </div>
+          <span className="complete">{successMessage}</span>
           <button
             type="submit"
             disabled={!isValid}

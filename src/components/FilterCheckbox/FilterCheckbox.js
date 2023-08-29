@@ -1,11 +1,22 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 import "./FilterCheckbox.css";
 
-function FilterCheckbox({ isShort, onCheck }) {
-  
+function FilterCheckbox({ isShort, onCheck, onCheckShortSaved }) {
+
+  let location = useLocation();
+
   function handleCheked(evt) {
+    // location.pathname === "/movies" ? JSON.stringify(localStorage.setItem("isShort", evt.target.checked)) :
     onCheck(evt.target.checked);
+    console.log('FilterCheckbox  '+evt.target.checked)
+    // JSON.stringify(localStorage.setItem("isShort", value));
+  }
+
+  function handleChekedSaved(evt) {
+    onCheckShortSaved(evt.target.checked)
+
   }
 
   const short = JSON.parse(isShort)
@@ -18,6 +29,7 @@ function FilterCheckbox({ isShort, onCheck }) {
           type="checkbox"
           name="checkbox"
           id="checkbox"
+          // onChange={location.pathname === "/movies" ? handleCheked : handleChekedSaved}
           onChange={handleCheked}
           checked={short ?? false}
         />

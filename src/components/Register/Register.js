@@ -23,10 +23,22 @@ function Register({ handleLogin }) {
 
     const { name, email, password } = values;
     MainApi.register({ name, email, password })
+      .then((data) => {
+        MainApi.login({ email, password })
       .then(() => {
         handleLogin();
         navigate("/movies");
-        handleChange();
+      })
+      })
+      .catch((err) => {
+        if (err.status === 400) {
+          setErrRegister("Вы ввели неправильный логин или пароль.");
+        } else if (err.status === 401) {
+          setErrRegister(
+            "При авторизации произошла ошибка. Токен не передан или передан не в том формате."
+          );
+        } else setErrRegister("При авторизации произошла ошибка");
+        setIsValid(false);
       })
       .catch((err) => {
         if (err.status === 409) {

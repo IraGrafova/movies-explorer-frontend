@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   useNavigate,
+  Navigate,
   useLocation,
 } from "react-router-dom";
 import "./App.css";
@@ -40,7 +41,7 @@ function App() {
     MainApi.jwt()
       .then(() => {
         setLoggedIn(true);
-        navigate(path);
+        navigate(path, {replace:true});
       })
       .catch((err) => {
         console.log(err);
@@ -84,8 +85,12 @@ function App() {
               />
             }
           />
-          <Route path="/signup" element={<Register handleLogin={handleLogin}/>} />
-          <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
+         <Route path="/signup" element={
+          loggedIn ? (<Navigate to={'/'} replace/>) :
+          (<Register handleLogin={handleLogin}/>)} />
+          <Route path="/signin" element={
+          loggedIn ? (<Navigate to={'/'} replace/>) :
+          (<Login handleLogin={handleLogin}/>)} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

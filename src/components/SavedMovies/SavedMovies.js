@@ -5,26 +5,29 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function SavedMovies({ savedCards, isShort, dataSearch, onLike }) {
   const [searchedMovie, setSearchedMovie] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
     const filteredMovies = savedCards.filter((card) =>
-    isShort
-        ? ((card.nameRU.toLowerCase().includes(dataSearch) ||
+      isShort
+        ? (card.nameRU.toLowerCase().includes(dataSearch) ||
             card.nameEN.toLowerCase().includes(dataSearch)) &&
-          card.duration < 40)
-        : (card.nameRU.toLowerCase().includes(dataSearch) ||
-          card.nameEN.toLowerCase().includes(dataSearch))
+          card.duration < 40
+        : card.nameRU.toLowerCase().includes(dataSearch) ||
+          card.nameEN.toLowerCase().includes(dataSearch)
     );
-    // console.log(filteredMovies)
+
     setSearchedMovie(filteredMovies);
-    // console.log(searchedMovie)
   }, [isShort, dataSearch, savedCards]);
 
+  React.useEffect(() => {
+    searchedMovie.length > 0 && setIsLoading(true);
+  }, [searchedMovie]);
 
   return (
     <main className="movies">
       <section>
-        {dataSearch ? (
+        {isLoading ? (
           <ul className="movies-list">
             {searchedMovie?.length > 0 ? (
               searchedMovie.map((card) => (

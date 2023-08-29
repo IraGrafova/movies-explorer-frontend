@@ -24,11 +24,10 @@ function Register({ handleLogin }) {
     const { name, email, password } = values;
     MainApi.register({ name, email, password })
       .then((data) => {
-        MainApi.login({ email, password })
-      .then(() => {
-        handleLogin();
-        navigate("/movies");
-      })
+        MainApi.login({ email, password }).then(() => {
+          handleLogin();
+          navigate("/movies");
+        });
       })
       .catch((err) => {
         if (err.status === 400) {
@@ -73,7 +72,7 @@ function Register({ handleLogin }) {
                 ? "authorization-form__input error-input"
                 : "authorization-form__input"
             }
-            pattern='[a-zA-Zа-яА-ЯёЁ\-\s]+'
+            pattern="[a-zA-Zа-яА-ЯёЁ\-\s]+"
           ></input>
           <span className="error">{errors["name"]}</span>
           <label htmlFor="email" className="authorization-form__label">

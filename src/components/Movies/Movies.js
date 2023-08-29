@@ -78,7 +78,7 @@ function Movies() {
 
     if (location.pathname === "/movies") {
       JSON.stringify(localStorage.setItem("isShort", value));
-      console.log(isShort)
+      console.log(isShort);
       setIsShort(value);
     } else setIsShort(value);
   }

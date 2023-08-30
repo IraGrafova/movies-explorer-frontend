@@ -4,31 +4,18 @@ import { useLocation } from "react-router-dom";
 import "./SavedMovies.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, setSearchedMovie }) {
-  // const [searchedMovie, setSearchedMovie] = React.useState([]);
+function SavedMovies({
+  savedCards,
+  isShort,
+  dataSearch,
+  onLike,
+  searchedMovie,
+  setSearchedMovie,
+}) {
+
   const [isLoading, setIsLoading] = React.useState(false);
 
-  let location = useLocation();
-
-  // function handleLocation() {
-  //   if (location.pathname !== 'saved-movies') {
-  //     setSearchedMovie([]);
-  //     setIsLoading(false)
-  //   } else setIsLoading(true)
-  // }
-
-  // React.useEffect(() => {
-  //   if (location.pathname !== 'saved-movies') {
-  //     setSearchedMovie([]);
-  //     setIsLoading(false)
-  //   }
-  // }, [location.pathname]);
-
   React.useEffect(() => {
-    console.log(searchedMovie)
-
-    if (dataSearch.length > 0) {
-    setIsLoading(true)
     const filteredMovies = savedCards.filter((card) =>
       isShort
         ? (card.nameRU.toLowerCase().includes(dataSearch) ||
@@ -39,25 +26,11 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, s
     );
 
     setSearchedMovie(filteredMovies);
-    console.log(filteredMovies)
-    }
-   
-
-  }, [isShort, dataSearch, savedCards, location.pathname]);
-
-  console.log(searchedMovie)
+  }, [isShort, dataSearch, savedCards]);
 
   React.useEffect(() => {
-      if (location.pathname === 'saved-movies') {
-        setSearchedMovie([]);
-        setIsLoading(false)
-      }
-    }, [location.pathname]);
-  
-
-  // React.useEffect(() => {
-  //   searchedMovie.length > 0 && setIsLoading(true);
-  // }, [searchedMovie]);
+    searchedMovie.length > 0 && setIsLoading(true);
+  }, [searchedMovie]);
 
   return (
     <main className="movies">

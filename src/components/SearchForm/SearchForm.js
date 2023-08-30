@@ -14,10 +14,7 @@ function SearchForm({
   setIsShort,
   onCheck,
   onSubmitSavedSearch,
-  setSearch,
-
   onCheckShortSaved,
-  searchSavedMovie, setSearchSavedMovie
 }) {
   const { values, setValues, handleChange, isValid } = useFormWithValidation();
 
@@ -26,40 +23,20 @@ function SearchForm({
 
   const [errMessage, setErrMessage] = React.useState("");
 
-
   React.useEffect(() => {
-
-    if (location.pathname === "/saved-movies") {
-      setValues((values) => ({
-        ...values,
-        movie: '',
-      }));
-      setIsShort(false);
-
-      console.log(searchSavedMovie)
-      setSearchSavedMovie([]);
-    } else {
-      setValues((values) => ({
-        ...values,
-        movie: localStorage.getItem("dataSearch"),
-      }));
-      setIsShort(localStorage.getItem("isShort") || false);
-      setSearchSavedMovie([]);
-    }
-    console.log(searchSavedMovie)
-    // location.pathname === "/saved-movies"
-    //   ? setValues((values) => ({
-    //     ...values,
-    //     movie: '',
-    //   }))
-    //   : setValues((values) => ({
-    //     ...values,
-    //     movie: localStorage.getItem("dataSearch"),
-    //   }));
-    // location.pathname === "/saved-movies"
-    //   ? setIsShort(false)
-    //   : setIsShort(localStorage.getItem("isShort") || false);
-  }, [location.pathname]);
+    location.pathname === "/saved-movies"
+      ? setValues((values) => ({
+          ...values,
+          movie: "",
+        }))
+      : setValues((values) => ({
+          ...values,
+          movie: localStorage.getItem("dataSearch"),
+        }));
+    location.pathname === "/saved-movies"
+      ? setIsShort(false)
+      : setIsShort(localStorage.getItem("isShort") || false);
+  }, [location.pathname, setIsShort, setValues]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -111,7 +88,11 @@ function SearchForm({
             disabled={!isValid}
           ></button>
         </div>
-        <FilterCheckbox isShort={isShort} onCheck={onCheck} onCheckShortSaved={onCheckShortSaved}/>
+        <FilterCheckbox
+          isShort={isShort}
+          onCheck={onCheck}
+          onCheckShortSaved={onCheckShortSaved}
+        />
       </form>
       <span className="error error-search">{errMessage}</span>
     </section>

@@ -39,7 +39,7 @@ function Profile({ setCurrentUser, setLoggedIn }) {
       .then((data) => {
         setCurrentUser(data);
         setSuccessMessage("Профиль обновлен");
-        setTimeout(() => setSuccessMessage(""), 7000)
+        setTimeout(() => setSuccessMessage(""), 5000);
       })
       .catch((err) => {
         if (err.status === 409) {

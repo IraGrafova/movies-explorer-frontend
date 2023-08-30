@@ -57,15 +57,12 @@ function Movies() {
         .catch((err) => {
           console.log(err);
         })
-    
-    .finally(() => {
-      setIsLoading(false);
-    });
-  }
 
-    const value = dataSearch;
-    setSearch(value);
-    JSON.stringify(localStorage.setItem("dataSearch", value));
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+    JSON.stringify(localStorage.setItem("dataSearch", dataSearch));
 
     window.addEventListener("resize", listenResize);
 
@@ -87,6 +84,18 @@ function Movies() {
       setIsShort(value);
     } else setIsShort(value);
   }
+
+  React.useEffect(() => {
+    console.log(location.pathname);
+    console.log(location.pathname === "/saved-movies");
+    if (location.pathname !== "/saved-movies") {
+      console.log(searchSavedMovie);
+      setSearchSavedMovie([]);
+      console.log(searchSavedMovie);
+      setIsLoading(false);
+    }
+    location.pathname === "/saved-movies" && setStringSearchSaved("");
+  }, [location.pathname]);
 
   React.useEffect(() => {
     MainApi.getMovies()
@@ -136,23 +145,24 @@ function Movies() {
         onCheck={handleIsShort}
         setSearch={setSearch}
         searchSavedMovie={searchSavedMovie}
-        setSearchSavedMovie={setSearchSavedMovie}
       />
 
-{isLoading ? <Preloader /> : 
-  location.pathname === "/movies" && (
-        <MoviesCardList
-          dataSearch={search.toLowerCase()}
-          isShort={isShort}
-          onLike={handleLike}
-          savedCards={savedCards}
-          cardToView={cardToView}
-          setCardToView={setCardToView}
-          windowWidth={windowWidth}
-          movies={movies}
-        />
-      )
-} 
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        location.pathname === "/movies" && (
+          <MoviesCardList
+            dataSearch={search.toLowerCase()}
+            isShort={isShort}
+            onLike={handleLike}
+            savedCards={savedCards}
+            cardToView={cardToView}
+            setCardToView={setCardToView}
+            windowWidth={windowWidth}
+            movies={movies}
+          />
+        )
+      )}
       {location.pathname === "/saved-movies" && (
         <SavedMovies
           dataSearch={stringSearchSaved.toLowerCase()}

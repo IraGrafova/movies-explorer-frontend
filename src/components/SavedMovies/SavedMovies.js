@@ -39,7 +39,7 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, s
     setSearchedMovie(filteredMovies);
 
     console.log(searchedMovie)
-  }, [isShort, dataSearch, savedCards]);
+  }, [isShort, dataSearch, savedCards, location.pathname]);
 
   console.log(searchedMovie)
 

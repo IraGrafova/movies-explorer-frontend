@@ -26,6 +26,7 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, s
 
   React.useEffect(() => {
     console.log(searchedMovie)
+    dataSearch &&
     setIsLoading(true)
     const filteredMovies = savedCards.filter((card) =>
       isShort

@@ -16,7 +16,7 @@ function Movies() {
   const [search, setSearch] = React.useState(
     localStorage.getItem("dataSearch") || ""
   );
-  const [searchSavedMovies, setSearchSavedMovies] = React.useState("");
+  const [stringSearchSaved, setStringSearchSaved] = React.useState("");
   const [isShort, setIsShort] = React.useState(
     localStorage.getItem("isShort") || false
   );
@@ -27,6 +27,8 @@ function Movies() {
   const [savedCards, setSavedCards] = React.useState([]);
 
   const [isLoading, setIsLoading] = React.useState(false);
+
+  const [searchSavedMovie, setSearchSavedMovie] = React.useState([]);
 
   const windowWidth = 768;
 
@@ -74,7 +76,7 @@ function Movies() {
 
   function handleSearchSavedMovies(dataSearch) {
     const value = dataSearch;
-    setSearchSavedMovies(value);
+    setStringSearchSaved(value);
   }
 
   function handleIsShort(check) {
@@ -133,10 +135,11 @@ function Movies() {
         setIsShort={setIsShort}
         onCheck={handleIsShort}
         setSearch={setSearch}
+        searchSavedMovie={searchSavedMovie}
+        setSearchSavedMovie={setSearchSavedMovie}
       />
 
 {isLoading ? <Preloader /> : 
-
   location.pathname === "/movies" && (
         <MoviesCardList
           dataSearch={search.toLowerCase()}
@@ -149,21 +152,15 @@ function Movies() {
           movies={movies}
         />
       )
-
-
-
-
-}
-
-    
+} 
       {location.pathname === "/saved-movies" && (
         <SavedMovies
-          dataSearch={searchSavedMovies.toLowerCase()}
+          dataSearch={stringSearchSaved.toLowerCase()}
           savedCards={savedCards}
           isShort={isShort}
           onLike={handleLike}
-          movies={movies}
-          setSearchSavedMovies={setSearchSavedMovies}
+          searchedMovie={searchSavedMovie}
+          setSearchedMovie={setSearchSavedMovie}
         />
       )}
     </main>

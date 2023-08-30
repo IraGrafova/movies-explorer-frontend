@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import "./SavedMovies.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function SavedMovies({ savedCards, isShort, dataSearch, onLike }) {
-  const [searchedMovie, setSearchedMovie] = React.useState([]);
+function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, setSearchedMovie }) {
+  // const [searchedMovie, setSearchedMovie] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
   let location = useLocation();

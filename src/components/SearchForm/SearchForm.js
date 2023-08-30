@@ -16,7 +16,8 @@ function SearchForm({
   onSubmitSavedSearch,
   setSearch,
   setSearchSavedMovies,
-  onCheckShortSaved
+  onCheckShortSaved,
+  searchSavedMovie, setSearchSavedMovie
 }) {
   const { values, setValues, handleChange, isValid } = useFormWithValidation();
 
@@ -24,43 +25,38 @@ function SearchForm({
   const ref = useRef();
 
   const [errMessage, setErrMessage] = React.useState("");
-  // const [search, setSearch] = React.useState(localStorage.getItem("dataSearch") || "");
-// const [serchSaved, setSearchSaved] =
-  // React.useEffect(() => {
-  //   location.pathname === "/saved-movies"
-  //     ? setSearch("")
-  //     : setSearch(localStorage.getItem("dataSearch")) || setSearch("");
-  //   location.pathname === "/saved-movies"
-  //     ? setIsShort(false)
-  //     : setIsShort(localStorage.getItem("isShort")) || setIsShort(false);
-  // }, [location.pathname]);
+
 
   React.useEffect(() => {
-// console.log(isShort)
 
-    location.pathname === "/saved-movies"
-      ? setValues((values) => ({
+    if (location.pathname === "/saved-movies") {
+      setValues((values) => ({
         ...values,
         movie: '',
-      }))
-      : setValues((values) => ({
+      }));
+      setIsShort(false);
+      setSearchSavedMovie([]);
+    } else {
+      setValues((values) => ({
         ...values,
         movie: localStorage.getItem("dataSearch"),
       }));
-    location.pathname === "/saved-movies"
-      ? setIsShort(false)
-      : setIsShort(localStorage.getItem("isShort") || false);
-  }, [location.pathname]);
+      setIsShort(localStorage.getItem("isShort") || false);
+    }
 
-  // React.useEffect(() => {
-  //   console.log(values)
-  //   // setSearchSavedMovies(values.movie)
-  //   // location.pathname === "/saved-movies"
-  //   // && setValues((values) => ({
-  //   //   ...values,
-  //   //   movie: localStorage.getItem("dataSearch"),
-  //   // }))
-  // }, [values.movie])
+    // location.pathname === "/saved-movies"
+    //   ? setValues((values) => ({
+    //     ...values,
+    //     movie: '',
+    //   }))
+    //   : setValues((values) => ({
+    //     ...values,
+    //     movie: localStorage.getItem("dataSearch"),
+    //   }));
+    // location.pathname === "/saved-movies"
+    //   ? setIsShort(false)
+    //   : setIsShort(localStorage.getItem("isShort") || false);
+  }, [location.pathname]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -74,18 +70,6 @@ function SearchForm({
     evt.preventDefault();
     onSubmitSavedSearch(movie);
   }
-
-
-
-  // React.useEffect(() => {
-  //   setValues((values) => ({
-  //     ...values,
-  //     movie: localStorage.getItem("dataSearch"),
-  //   }));
-  //   setIsShort(JSON.parse(localStorage.getItem("isShort")));
-  //   setSearch(localStorage.getItem("dataSearch"));
-
-  // }, []);
 
   React.useEffect(() => {
     values.movie?.length === 0

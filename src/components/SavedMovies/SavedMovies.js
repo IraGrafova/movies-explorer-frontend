@@ -26,8 +26,9 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, s
 
   React.useEffect(() => {
     console.log(searchedMovie)
-    dataSearch &&
-    setIsLoading(true)
+
+    if (dataSearch.length > 0) {
+       setIsLoading(true)
     const filteredMovies = savedCards.filter((card) =>
       isShort
         ? (card.nameRU.toLowerCase().includes(dataSearch) ||
@@ -38,6 +39,8 @@ function SavedMovies({ savedCards, isShort, dataSearch, onLike, searchedMovie, s
     );
 
     setSearchedMovie(filteredMovies);
+    }
+   
 
     console.log(searchedMovie)
   }, [isShort, dataSearch, savedCards, location.pathname]);

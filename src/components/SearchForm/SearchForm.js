@@ -15,7 +15,7 @@ function SearchForm({
   onCheck,
   onSubmitSavedSearch,
   setSearch,
-  setSearchSavedMovies,
+
   onCheckShortSaved,
   searchSavedMovie, setSearchSavedMovie
 }) {
@@ -35,6 +35,8 @@ function SearchForm({
         movie: '',
       }));
       setIsShort(false);
+
+      console.log(searchSavedMovie)
       setSearchSavedMovie([]);
     } else {
       setValues((values) => ({
@@ -42,8 +44,9 @@ function SearchForm({
         movie: localStorage.getItem("dataSearch"),
       }));
       setIsShort(localStorage.getItem("isShort") || false);
+      setSearchSavedMovie([]);
     }
-
+    console.log(searchSavedMovie)
     // location.pathname === "/saved-movies"
     //   ? setValues((values) => ({
     //     ...values,

@@ -45,7 +45,7 @@ function MoviesCardList({
 
   return (
     <section>
-      {isLoading ? (
+      {isLoading && (
         <>
           <ul className="movies-list">
             {searchMovies.length > 0 ? (
@@ -75,8 +75,6 @@ function MoviesCardList({
             Ещё
           </button>
         </>
-      ) : (
-        <Preloader />
       )}
     </section>
   );

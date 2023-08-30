@@ -7,6 +7,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import * as MainApi from "../../utils/MainApi";
 import * as MoviesApi from "../../utils/MoviesApi";
+import Preloader from "../Preloader/Preloader";
 
 function Movies() {
   const [movies, setMovies] = React.useState(
@@ -25,6 +26,8 @@ function Movies() {
   );
   const [savedCards, setSavedCards] = React.useState([]);
 
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const windowWidth = 768;
 
   function listenResize() {
@@ -42,6 +45,7 @@ function Movies() {
 
   function handleSearchMovies(dataSearch) {
     if ((dataSearch.length > 0) & (movies.length === 0)) {
+      setIsLoading(true);
       MoviesApi.getMovies()
         .then((data) => {
           localStorage.setItem("movies", JSON.stringify(data));
@@ -50,8 +54,12 @@ function Movies() {
         })
         .catch((err) => {
           console.log(err);
-        });
-    }
+        })
+    
+    .finally(() => {
+      setIsLoading(false);
+    });
+  }
 
     const value = dataSearch;
     setSearch(value);
@@ -126,7 +134,10 @@ function Movies() {
         onCheck={handleIsShort}
         setSearch={setSearch}
       />
-      {location.pathname === "/movies" && (
+
+{isLoading ? <Preloader /> : 
+
+  location.pathname === "/movies" && (
         <MoviesCardList
           dataSearch={search.toLowerCase()}
           isShort={isShort}
@@ -137,7 +148,14 @@ function Movies() {
           windowWidth={windowWidth}
           movies={movies}
         />
-      )}
+      )
+
+
+
+
+}
+
+    
       {location.pathname === "/saved-movies" && (
         <SavedMovies
           dataSearch={searchSavedMovies.toLowerCase()}

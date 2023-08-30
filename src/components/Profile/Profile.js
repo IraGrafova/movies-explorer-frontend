@@ -50,9 +50,8 @@ function Profile({ setCurrentUser, setLoggedIn }) {
   }
 
   React.useEffect(() => {
-    setSuccessMessage("");
     setErrRegister("");
-  }, [values]);
+  }, [setErrRegister, values]);
 
   React.useEffect(() => {
     setValues((values) => ({

@@ -20,8 +20,6 @@ function Movies() {
     localStorage.getItem("isShort") || false
   );
 
-  console.log("Movies  " + isShort);
-
   const [cardToView, setCardToView] = React.useState(
     JSON.parse(localStorage.getItem("cardToView")) || ""
   );
@@ -33,7 +31,7 @@ function Movies() {
     const windowWidth = 768;
     if (window.screen.width > windowWidth) {
       setCardToView(7);
-      localStorage.setItem("cardToView", JSON.stringify(4));
+      localStorage.setItem("cardToView", JSON.stringify(7));
     } else if (window.screen.width < windowWidth) {
       setCardToView(5);
       localStorage.setItem("cardToView", JSON.stringify(5));
@@ -74,11 +72,8 @@ function Movies() {
   function handleIsShort(check) {
     const value = check;
 
-    console.log(value);
-
     if (location.pathname === "/movies") {
       JSON.stringify(localStorage.setItem("isShort", value));
-      console.log(isShort);
       setIsShort(value);
     } else setIsShort(value);
   }

@@ -62,8 +62,10 @@ function Movies() {
           setIsLoading(false);
         });
     }
-    JSON.stringify(localStorage.setItem("dataSearch", dataSearch));
 
+
+    JSON.stringify(localStorage.setItem("dataSearch", dataSearch));
+    setSearch(dataSearch);
     window.addEventListener("resize", listenResize);
 
     return () => {
@@ -89,9 +91,8 @@ function Movies() {
     console.log(location.pathname);
     console.log(location.pathname === "/saved-movies");
     if (location.pathname !== "/saved-movies") {
-      console.log(searchSavedMovie);
       setSearchSavedMovie([]);
-      console.log(searchSavedMovie);
+
       setIsLoading(false);
     }
     location.pathname === "/saved-movies" && setStringSearchSaved("");

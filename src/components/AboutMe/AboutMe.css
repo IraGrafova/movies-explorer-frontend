@@ -1,0 +1,144 @@
+.about-me {
+  background: #202020;
+  padding: 72px 13px 0;
+  text-align: left;
+}
+
+.about-me__heading {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  border-bottom: 1px #dadada solid;
+  height: 50px;
+  margin: 0;
+}
+
+.about-me__photo {
+  width: 292px;
+  height: 352px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 60px;
+}
+
+.about-me__info {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 145.455% */
+  margin-top: 18px;
+}
+
+.about-me__title {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  margin: 0;
+  margin-top: 38px;
+}
+
+.about-me__description {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 20px 0 40px;
+}
+
+.about-me__github {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.about-me__github:hover {
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .about-me {
+    background: #202020;
+    padding: 38px 50px 0;
+  }
+
+  .about-me__heading {
+    font-size: 22px;
+    letter-spacing: -0.88px;
+  }
+
+  .about-me__block {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 49px;
+  }
+
+  .about-me__title {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+    margin-top: 67px;
+  }
+
+  .about-me__description {
+    padding-bottom: 58px;
+  }
+
+  .about-me__photo {
+    max-height: 307px;
+    margin-top: 66px;
+    min-width: 255px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-me {
+    padding: 38px 70px 0;
+  }
+
+  .about-me__title {
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+  }
+
+  .about-me__info {
+    font-size: 18px;
+    font-feature-settings: "clig" off, "liga" off;
+    line-height: 20px;
+  }
+
+  .about-me__description {
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .about-me__block {
+    gap: 252px;
+  }
+
+  .about-me__photo {
+    width: 270px;
+    max-height: 327px;
+    min-width: 270px;
+  }
+}

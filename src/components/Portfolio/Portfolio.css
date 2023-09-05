@@ -1,0 +1,76 @@
+.portfolio {
+  background: #202020;
+  padding: 57px 15px 0;
+  text-align: left;
+}
+
+.portfolio__heading {
+  color: #a0a0a0;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  margin-bottom: 40px;
+}
+
+.portfolio__list {
+  list-style: none;
+  padding: 0;
+}
+
+.portfolio__links {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.portfolio__github {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: -0.72px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 47px;
+  border-bottom: 1px #dadada solid;
+  text-decoration: none;
+}
+
+.portfolio__github:hover {
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .portfolio {
+    padding: 75px 50px 0;
+  }
+  .portfolio__heading {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 52px;
+  }
+  .portfolio__github {
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 50px;
+    letter-spacing: -1.12px;
+    min-height: 69px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio {
+    padding: 83px 70px 0;
+  }
+
+  .portfolio__github {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+}

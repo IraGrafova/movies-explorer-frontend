@@ -1,0 +1,137 @@
+.movies-card {
+  background-color: #2f2f2f;
+}
+
+.movies-card__picture {
+  object-fit: cover;
+  width: 100%;
+  background-color: #202020;
+  height: 168px;
+  /* height: auto; */
+  /* height: 57%; */
+}
+
+.movies-card__title {
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.movies-card__like {
+  border: none;
+  background-color: #2f2f2f;
+  background-image: url(../../images/like.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  width: 14px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.movies-card__like:hover {
+  opacity: 0.5;
+}
+.movies-card__like_active {
+  opacity: 1;
+  background-image: url(../../images/like_active.svg);
+}
+.movies-card__delete {
+  border: none;
+  background-color: #2f2f2f;
+  background-image: url(../../images/delete-movie.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  width: 14px;
+  height: 12px;
+  cursor: pointer;
+}
+.movies-card__delete:hover {
+  opacity: 0.5;
+}
+
+.movies-card__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.movies-card__duration {
+  color: #8b8b8b;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+  margin: 0;
+}
+
+.movies-card__label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 13px;
+  margin-left: 12px;
+  margin-right: 16px;
+}
+
+@media (min-width: 340px) {
+  .movies-card__picture {
+    height: auto;
+  }
+}
+
+/* @media (min-width: 637px) {
+  .movies-card__picture {
+   height: 78%;
+  }
+} */
+
+@media (min-width: 768px) {
+  .movies-card {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+  .movies-card__picture {
+    width: 220px;
+    height: 122px;
+    margin: 6px 6px 6px 0px;
+  }
+  .movies-card__about {
+    text-align: left;
+    gap: 13px;
+  }
+
+  .movies-card__label {
+    display: flex;
+    flex-direction: column;
+    margin: 22px;
+
+    text-align: left;
+    gap: 30px;
+  }
+
+  .movies-card__duration {
+    padding: 0;
+  }
+
+  .movies-card__title {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movies-card {
+    margin: 0 60px;
+  }
+}
